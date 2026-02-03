@@ -1,0 +1,1488 @@
+@font-face {
+    font-family: 'Rowdies';
+    src: url(./fonts/h2-Rowdies/Rowdies-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ZenKakuGothicAntique';
+    src: url(./fonts/nav-ZenKakuGothicAntique/ZenKakuGothicAntique-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url(./fonts/paragraph-Nunito/Nunito-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MPLUSRounded1c';
+    src: url(./fonts/titre-MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+
+:root{
+    --cream:#FCECEB;
+    --sakura:#ED90A0;
+    --sakura-transp:#ed90a091;
+    --trunk:#4F333D;
+    --sky:#258DC5;
+    --grass:#DCD349;
+    --red:#A6262B;
+    --redtransp:#a6262ac5;
+    --orange:#FB963C;
+    --black:#121212;
+
+    --green:#2F900B;
+    --greentransp:#2e900b6d;
+    --purple:#6802C2;
+    --purpletransp:#6802c270;
+    --blue:#1f2aa2;
+    --bluetransp:#1922807a;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;   /* enlève le soulignement */
+    color: inherit;          /* hérite de la couleur du parent (ex : le <h2>) */
+}
+
+body{
+    /* parce qu'il y a un débordement à droite à cause de la vidéo je crois */
+    overflow-x: hidden;
+}
+
+/* --------------------------------- SECTION ACCUEIL --------------------------------------*/
+
+#Accueil{
+    position: relative;
+}
+
+#Accueil video{
+    width:100vw;
+    height: auto;
+    z-index:-1;
+}
+
+#Accueil #tora-academy-container{
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw; 
+    text-align: center;
+}
+
+#Accueil h1{
+    font-family: 'MPLUSRounded1c', Impact;
+    color: var(--sakura);
+    -webkit-text-stroke: white 5px;
+    font-size: 10vw; /* pas en rem pour que ce soit responsive sinon ça déborde*/
+    user-select: none;
+}
+
+nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 12vh;
+    /* max-height: 15%; */
+    display: flex;
+    font-family: 'ZenKakuGothicAntique', Impact;
+    background-color:rgba(255, 255, 255, 0.684);
+    border: var(--sakura) solid 2px;
+    margin-top: 1%;
+    padding: 0.5%;
+    justify-content: space-between;
+    border-left:none;
+    border-right:none;
+}
+
+
+
+nav img{
+    width: auto;           
+    height: 100%;  
+    object-fit: contain;       
+    /* border:#A6262B 2px solid; */
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    width:80%;
+    justify-content: space-evenly;
+    align-items:center;
+    font-size: 1.2vw;
+    user-select: none;
+}
+
+nav li {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    height: 100%; /* permet au ::before d'après de remplir la hauteur de la nav */
+    display: flex;
+    align-items: center;
+    padding: 0 1vw; /* un peu d'espace à gauche/droite pour le ::before */
+}
+
+nav li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--sakura-transp);
+    opacity: 0;
+    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+    transition: opacity 0.2s ease;
+    border-radius: 8px;
+}
+
+nav li:hover::before {
+    opacity: 1;
+}
+
+
+/* --------------------------------- SECTION ACCUEIL FIN --------------------------------------*/
+
+/* --------------------------------- SECTION A PROPOS --------------------------------------*/
+
+.triangle-haut {
+    position:absolute;
+    background: rgb(255, 255, 255);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    width: 14vw;
+    /* height: 140px; */
+    aspect-ratio: 5 / 3;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:0;
+}
+
+#a-propos{
+    position:relative;
+    background-color: white;
+    min-height:10vh;
+    display: flex;
+    /* border:var(--grass) 10px solid */
+}
+
+#a-propos::before{
+    content:"";
+    background: var(--grass);
+    position: absolute;
+    width: 100%;
+    height: 1.5%;
+    left:50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+}
+
+#a-propos::after{
+    content:"";
+    background: var(--grass);
+    position: absolute;
+    width: 100%;
+    height: 1.5%;
+    left:50%;
+    transform: translateX(-50%) scaleX(0);
+    bottom:0%;
+    transform-origin: center;
+}
+
+
+@keyframes lineanim {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+#a-propos:hover::before {
+  animation: lineanim 0.8s ease-out forwards;
+}
+
+#a-propos:hover::after {
+  animation: lineanim 0.8s ease-out forwards;
+}
+
+.a-propos-left{
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.a-propos-left img{
+    width:100%;
+    height:auto;
+}
+
+.a-propos-right{
+    margin: 3vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.a-propos-right h2{
+    width: 65%;
+    background-color: var(--grass);
+    border-radius: 25px;
+    padding: 9px;
+    display: inline-block; /*Pour enlever le display block tout en acceptant padding margin contrairement à inline*/
+    font-family: 'Rowdies', Impact;
+    color: var(--orange);
+    -webkit-text-stroke: var(--black) 0.4vw;
+    font-size: 4vw;
+    border:var(--black) 1px solid;
+}
+
+.a-propos-right p{
+    background-color: var(--grass);
+    border-radius: 25px;
+    border:var(--black) 2px solid;
+    font-family:'Nunito',Impact;
+    font-weight: bold;
+    padding:20px;
+    padding-top: 30px;
+    width: 90%;
+    height: 100%;
+    max-height:90%;
+    font-size: 2vw;
+    text-align:justify;
+    position:relative;
+    
+}
+
+.a-propos-right p::before{
+    content:"";
+    background-image:url(./assets/sakura.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position:absolute;
+    width: 10%;
+    height:30%;
+    /* top:15%;
+    right:7%; */
+    /* transform cheat code pour responsive mais il doit y avoir meilleure méthode que à la louche comme ça */
+    /* transform:translate(-14%,-99%); */
+    top:0;
+    left:0;
+    transform:translate(910%, -60%)
+
+}
+
+/* --------------------------------- SECTION A PROPOS FIN --------------------------------------*/
+
+/* --------------------------------- SECTION LES CLASSES --------------------------------------*/
+
+#les-classes{
+    background:url(./assets/ciel.png);
+    display: flex;
+    flex-direction: column;
+    padding-top:1%
+}
+
+.les-classes-container-haut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.les-classes-container-haut img{
+    width: 30%;
+}
+
+.panel-des-classes{
+    border-radius: 25px;
+    margin:-2% 5% 0 5%;
+    height: 80%;
+    display: flex;
+    overflow:hidden;
+    border:#121212 2px solid;
+}
+
+
+
+.panel-des-classes img{
+    width: 100%;
+    height: 100%;
+}
+
+.la-6-eme, .la-5-eme, .la-4-eme, .la-3-eme {
+    position:relative;
+    filter: grayscale(100%);
+    cursor:pointer;
+    transition: filter 0.3s ease;
+}
+
+.classe-selectionnee{
+    filter: grayscale(0%);
+    border: var(--sakura-transp) 2px solid;
+}
+
+.la-6-eme button, .la-5-eme button, .la-4-eme button, .la-3-eme button {
+    position:absolute;
+    transform: translateX(-50%);
+    left:50%;
+    bottom:5%;
+    background:#FCECEB;
+    border-radius:50px;
+    font-size: 3vw;
+    padding-bottom: 2%;
+    width:50%;
+    height:10%;
+    border:none;
+    font-family: 'ZenKakuGothicAntique', Impact;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.la-6-eme button{
+    color:var(--red)
+}
+
+.la-5-eme button{
+    color:var(--green)
+}
+
+.la-4-eme button{
+    color:var(--purple)
+}
+
+.la-3-eme button{
+    color:var(--blue)
+}
+
+.les-classes-container-bas {
+    height: 10vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom:8%;
+    /* border: #A6262B solid 2px; */
+}
+
+/* .les-classes-container-bas button {
+    color: black;
+    font-size:1.5rem;
+    border:none;
+    clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);
+    width: 25%;
+    height: 30%;
+    position:absolute;
+    top:5%;
+    filter: drop-shadow(10% 6% 10% rgba(0,0,0,0.3));
+
+} */
+
+
+.les-classes-container-bas button {
+    /* le clip path empêchait le drop shadow et les bordures de s'afficher correctement */
+    color: black;
+    font-size: 4rem;
+    border: black 2px solid;
+    border-radius: 25px;
+    width: 25%;
+    height: 80%;
+    position: absolute;
+    top: -2%;
+    background-color: var(--cream);
+    font-family: 'ZenKakuGothicAntique', Impact;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
+    transform: 0.2s ease;
+    cursor:pointer;
+}
+
+.les-classes-container-bas button:hover {
+    transform: scale(1.2);
+}
+
+/* --------------------------------- SECTION LES CLASSES FIN --------------------------------------*/
+
+/* --------------------------------- SECTION CONTACT --------------------------------------*/
+
+#contact{
+    background-color: var(--trunk);
+    min-height:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-left{
+    /* correction du bouton envoyer qui débordait sur le footer grâce à Milo */
+    width:45%;
+}
+
+.ryann-encadre{
+    background-color: rgba(0, 0, 0, 0.511);
+    border-radius:25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin:7%;
+    padding-bottom:30%;
+    width:80%;
+}
+
+.ryann-encadre h2{
+    font-family: 'Rowdies', Impact;
+    color: var(--sakura);
+    -webkit-text-stroke: var(--black) 0.2vw;
+    font-size: 3.5vw;
+}
+
+.ryann-encadre img{
+    width: 75%;
+}
+
+.contact-right{
+    width:70%;
+    /* min-height:80vh; */
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:2%;
+    font-size:2.5rem;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder{
+    color:white;
+    padding-left:2%;
+    font-family: 'Nunito', Impact;
+    font-weight:bold;
+    font-size:2.5rem;
+}
+
+.contact-right input{
+    background-color:var(--sakura-transp);
+    color:white;
+    border-radius:10px;
+    border:none;
+    width: 70%;
+    height: 20%;
+    margin-top:2%;
+    font-size:2.5rem;
+}
+
+.contact-right textarea{
+    background-color:var(--sakura-transp);
+    color:white;
+    font-size:2.5rem;
+    border-radius:10px;
+    margin-top:4%;
+    width: 70%;
+    height: 70%;
+    padding-top:4%;
+    resize:none;
+}
+
+.contact-right button{
+    background-color:var(--sakura-transp);
+    margin-top:2%;
+    border: black 2px solid;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
+    padding:3% 2% 3.5% 2%;
+    border-radius:10%;
+    width: 20%;
+    height: 10%;
+    font-weight:bold;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transform: 0.2s ease;
+
+}
+
+.contact-right button:hover{
+    transform:scale(1.2);
+}
+
+/* --------------------------------- FOOTER --------------------------------------*/
+
+footer{
+    background-color: var(--black);
+    display: flex;
+}
+
+.footer-left{
+    width:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left img{
+    width:30%
+    
+}
+
+.footer-left a{
+    width:100%;
+    display: flex;
+    justify-content: end;
+}
+
+.footer-right{
+    width:70%;
+    margin:1%
+}
+
+.footer-right p{
+    font-family:'Nunito', Impact;
+    font-weight: bold;
+    font-size:1.5rem;
+    color:var(--cream)
+}
+
+/* --------------------------------- FOOTER FIN --------------------------------------*/
+
+/* --------------------------------- RESPONSIVE PAGE ACCUEIL --------------------------------------*/
+
+@media screen and (max-width:1400px) {
+    #Accueil h1{
+    -webkit-text-stroke: white 2px;
+    }
+
+    nav{
+        height: 3vh;
+    }
+
+    .les-classes-container-bas button {
+        font-size:1.5rem;
+        width:40%;
+        height: 50%;
+    }
+
+     .contact-right input::placeholder,
+     .contact-right textarea::placeholder{
+        font-size:0.8rem;
+    }
+
+    .contact-right input{
+        font-size: 1rem;
+    }
+
+    .contact-right textarea{
+    font-size: 1rem;
+    }
+
+    .contact-right button{
+        font-size:1rem;
+        width:80%;
+    }
+
+    .footer-right p{
+        font-size:0.6rem;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1400px) {
+
+    nav{
+        height: 5vh;
+    }
+}
+
+/* --------------------------------- RESPONSIVE PAGE ACCUEIL FIN --------------------------------------*/
+
+/* --------------------------------- CSS COMMUN AUX PAGES DES CLASSES --------------------------------------*/
+
+.video-cours {
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 700px;
+  background-color: var(--cream);
+  border: 2px dashed var(--red);
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.video-cours[open] {
+  transform: rotate(-1.5deg);
+}
+
+.video-cours summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  list-style: none;
+  padding: 0.5rem;
+  color: var(--red);
+}
+
+.video-cours summary::before {
+  content: "▶ ";
+}
+
+.video-cours[open] summary::before {
+  content: "▼ ";
+}
+
+.video-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.video-cours video {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* SI JAMAIS LES VIDEOS NE PASSENT PAS SUR GITHUB
+
+.video-container iframe {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+} */
+
+.zone-boutons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:5%;
+}
+
+.bouton-cours {
+  font-family: 'ZenKakuGothicAntique', sans-serif;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin: 1.5rem 1rem;
+  border: none;
+  border-radius: 20px 0 20px 0;
+  background-color: white;
+  color: var(--black);
+  cursor: pointer;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bouton-cours::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+  z-index: -1;
+  transition: background-color 0.3s ease;
+  border-radius: 20px 0 20px 0;
+}
+
+.bouton-accueil:hover::after {
+  background-color: var(--sakura);
+}
+
+.nav-bar {
+    font-family: 'ZenKakuGothicAntique', Impact;
+    color: var(--black);
+    background: linear-gradient(to right, white, rgb(196, 196, 196));
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    user-select: none;
+}
+
+.nav-bar li {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+/* --------------------------------- CSS COMMUN AUX PAGES DES CLASSES FIN --------------------------------------*/
+
+
+/* -------------------------------------- 6EME ------------------------------------------------------ */
+
+/* .page-6eme{
+
+nav{
+    font-family: 'ZenKakuGothicAntique', Impact;
+    background-color:rgba(255, 255, 255, 0.684);
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    user-select: none;
+}
+
+li{
+    list-style: none;
+}
+
+} ne fonctionne pas en CSS PUR essayer avec SASS un jour*/
+ 
+.page-6eme{
+    position:relative;
+}
+
+.page-6eme .nav-bar li:not(.non-surligne)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--redtransp);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 8px;
+    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+}
+
+.page-6eme .nav-bar li:not(.non-surligne):hover::before {
+    opacity: 1;
+}
+
+.page-6eme .fond-deco-haut{
+    width: 100%;
+    background:url(./assets/fond\ haut.png);
+    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
+    min-height:30vh;
+}
+
+.page-6eme .encadre-6eme{
+    position:absolute;
+    background:var(--red);
+    border-radius: 25px;
+    height: 40vh;
+    width:60%;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items: center;
+    padding:5%;
+}
+
+.page-6eme .encadre-6eme img{
+    height: 60vh;
+}
+
+.page-6eme h1{
+    color:white;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:15rem;
+    user-select: none;
+}
+
+
+.page-6eme .les-cours-6eme{
+    background: linear-gradient(to right, white, rgb(196, 196, 196));
+    min-height:150vh;
+    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
+}
+
+.page-6eme .les-cours-6eme h2{
+    color:var(--red);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:5rem;
+    margin:5%;
+    user-select: none;
+}
+
+.page-6eme .bouton-qcm:hover::after {
+  background-color: var(--red);
+}
+
+/* -------------------------------------- 6EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- RESPONSIVE 6EME ------------------------------------------------------ */
+
+@media screen and (max-width:1400px) {
+    .page-6eme .encadre-6eme img{
+        height:50vh;
+        position:absolute;
+        left:20%;
+        z-index:-1;
+        max-width: 100%;
+        }
+
+    .page-6eme h1{
+        color:white;
+        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+        -webkit-text-stroke: var(--black) 2px;
+        font-size:5rem;
+        user-select: none;
+    }
+
+    .page-6eme .les-cours-6eme h2{
+    color:var(--red);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:3rem;
+    margin:5%;
+    user-select: none;
+    }
+
+    .page-6eme .bouton-accueil{
+        font-size:1rem;
+    }
+
+    .page-6eme .bouton-qcm{
+        font-size: 1rem;
+    }
+
+}
+
+
+/* -------------------------------------- RESPONSIVE 6EME FIN ------------------------------------------------------ */
+
+
+/* -------------------------------------- 5EME ------------------------------------------------------ */
+ 
+.page-5eme{
+    position:relative;
+}
+
+
+
+.page-5eme .nav-bar li:not(.non-surligne)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--greentransp);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 8px;
+    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+}
+
+.page-5eme .nav-bar li:not(.non-surligne):hover::before {
+    opacity: 1;
+}
+
+.page-5eme .fond-deco-haut{
+    width: 100%;
+    background:url(./assets/fond\ haut.png);
+    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
+    min-height:30vh;
+}
+
+.page-5eme .encadre-5eme{
+    position:absolute;
+    background:var(--green);
+    border-radius: 25px;
+    height: 40vh;
+    width:60%;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items: center;
+    padding:5%;
+}
+
+.page-5eme .encadre-5eme img{
+    height: 60vh;
+    margin-left:30px;
+    margin-bottom:30px;
+}
+
+.page-5eme h1{
+    color:white;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:15rem;
+    user-select: none;
+}
+
+
+.page-5eme .les-cours-5eme{
+    background: linear-gradient(to right, white, rgb(196, 196, 196));
+    min-height:150vh;
+    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
+}
+
+.page-5eme .les-cours-5eme h2{
+    color:var(--green);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:5rem;
+    margin:5%;
+    user-select: none;
+}
+
+
+.page-5eme .video-cours {
+  border: 2px dashed var(--green);
+}
+
+.page-5eme .video-cours summary {
+  color: var(--green);
+}
+
+.page-5eme .bouton-qcm:hover::after {
+  background-color: var(--green);
+}
+
+/* -------------------------------------- 5EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- RESPONSIVE 5EME ------------------------------------------------------ */
+
+@media screen and (max-width:1400px) {
+    .page-5eme .encadre-5eme img{
+        height:50vh;
+        position:absolute;
+        left:20%;
+        z-index:-1;
+        max-width: 100%;
+        }
+
+    .page-5eme h1{
+        color:white;
+        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+        -webkit-text-stroke: var(--black) 2px;
+        font-size:5rem;
+        user-select: none;
+    }
+
+    .page-5eme .les-cours-5eme h2{
+    color:var(--green);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:3rem;
+    margin:5%;
+    user-select: none;
+    }
+
+    .page-5eme .bouton-accueil{
+        font-size:1rem;
+    }
+
+    .page-5eme .bouton-qcm{
+        font-size: 1rem;
+    }
+
+}
+
+
+/* -------------------------------------- RESPONSIVE 5EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- 4EME ------------------------------------------------------ */
+ 
+.page-4eme{
+    position:relative;
+}
+
+
+
+.page-4eme .nav-bar li:not(.non-surligne)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--purpletransp);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 8px;
+    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+}
+
+.page-4eme .nav-bar li:not(.non-surligne):hover::before {
+    opacity: 1;
+}
+
+.page-4eme .fond-deco-haut{
+    width: 100%;
+    background:url(./assets/fond\ haut.png);
+    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
+    min-height:30vh;
+}
+
+.page-4eme .encadre-4eme{
+    position:absolute;
+    background:var(--purple);
+    border-radius: 25px;
+    height: 40vh;
+    width:60%;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items: center;
+    padding:5%;
+}
+
+.page-4eme .encadre-4eme img{
+    height: 60vh;
+}
+
+.page-4eme h1{
+    color:white;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:15rem;
+    user-select: none;
+}
+
+
+.page-4eme .les-cours-4eme{
+    background: linear-gradient(to right, white, rgb(196, 196, 196));
+    min-height:150vh;
+    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
+}
+
+.page-4eme .les-cours-4eme h2{
+    color:var(--purple);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:5rem;
+    margin:5%;
+    user-select: none;
+}
+
+
+.page-4eme .video-cours {
+  border: 2px dashed var(--purple);
+}
+
+.page-4eme .video-cours summary {
+  color: var(--purple);
+}
+
+.page-4eme .bouton-qcm:hover::after {
+  background-color: var(--purple);
+}
+
+/* -------------------------------------- 4EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- RESPONSIVE 4EME ------------------------------------------------------ */
+
+@media screen and (max-width:1400px) {
+    .page-4eme .encadre-4eme img{
+        height:50vh;
+        position:absolute;
+        left:20%;
+        z-index:-1;
+        max-width: 100%;
+        margin-left:30px;
+        margin-bottom:120px;
+        }
+
+    .page-4eme h1{
+        color:white;
+        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+        -webkit-text-stroke: var(--black) 2px;
+        font-size:5rem;
+        user-select: none;
+    }
+
+    .page-4eme .les-cours-4eme h2{
+    color:var(--purple);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:3rem;
+    margin:5%;
+    user-select: none;
+    }
+
+    .page-4eme .bouton-accueil{
+        font-size:1rem;
+    }
+
+    .page-4eme .bouton-qcm{
+        font-size: 1rem;
+    }
+
+}
+
+
+/* -------------------------------------- RESPONSIVE 4EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- 3EME ------------------------------------------------------ */
+ 
+.page-3eme{
+    position:relative;
+}
+
+
+
+.page-3eme .nav-bar li:not(.non-surligne)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bluetransp);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 8px;
+    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+}
+
+.page-3eme .nav-bar li:not(.non-surligne):hover::before {
+    opacity: 1;
+}
+
+.page-3eme .fond-deco-haut{
+    width: 100%;
+    background:url(./assets/fond\ haut.png);
+    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
+    min-height:30vh;
+}
+
+.page-3eme .encadre-3eme{
+    position:absolute;
+    background:var(--blue);
+    border-radius: 25px;
+    height: 40vh;
+    width:60%;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items: center;
+    padding:5%;
+}
+
+.page-3eme .encadre-3eme img{
+    height: 60vh;
+}
+
+.page-3eme h1{
+    color:white;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:15rem;
+    user-select: none;
+}
+
+
+.page-3eme .les-cours-3eme{
+    background: linear-gradient(to right, white, rgb(196, 196, 196));
+    min-height:150vh;
+    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
+}
+
+.page-3eme .les-cours-3eme h2{
+    color:var(--blue);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:5rem;
+    margin:5%;
+    user-select: none;
+}
+
+
+.page-3eme .video-cours {
+  border: 2px dashed var(--blue);
+}
+
+.page-3eme .video-cours summary {
+  color: var(--blue);
+}
+
+.page-3eme .bouton-qcm:hover::after {
+  background-color: var(--blue);
+}
+
+/* -------------------------------------- 3EME FIN ------------------------------------------------------ */
+
+/* -------------------------------------- RESPONSIVE 3EME ------------------------------------------------------ */
+
+@media screen and (max-width:1400px) {
+    .page-3eme .encadre-3eme img{
+        height:50vh;
+        position:absolute;
+        left:20%;
+        z-index:-1;
+        max-width: 100%;
+        }
+
+    .page-3eme h1{
+        color:white;
+        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+        -webkit-text-stroke: var(--black) 2px;
+        font-size:5rem;
+        user-select: none;
+    }
+
+    .page-3eme .les-cours-3eme h2{
+    color:var(--blue);
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size:3rem;
+    margin:5%;
+    user-select: none;
+    }
+
+    .page-3eme .bouton-accueil{
+        font-size:1rem;
+    }
+
+    .page-3eme .bouton-qcm{
+        font-size: 1rem;
+    }
+
+}
+
+
+/* -------------------------------------- RESPONSIVE 3EME FIN ------------------------------------------------------ */
+
+
+/* -------------------------------------- TOUS LES QCM ------------------------------------------------------ */
+
+.app-qcm{
+    background-color:white;
+    width: 90%;
+    max-width: 600px;
+    margin:100px auto 0;
+    border-radius:20px;
+    padding:30px;
+    font-family: 'Nunito', Impact;
+}
+
+.app-qcm h1{
+    font-style: 25px;
+    border-bottom:2px solid var(--black);
+    padding-bottom:30px;
+}
+
+.qcm{
+    padding: 20px 0;
+}
+
+.question{
+    font-style: 18px;
+}
+
+.reponse{
+    background-color:white;
+    color:var(--black);
+    font-weight: 500;
+    width: 100%;
+    border: 2px solid var(--black);
+    padding:10px;
+    margin:10px 0;
+    text-align:left;
+    border-radius: 10px;
+    cursor:pointer;  
+    transition: all 0.3s ease-in-out;
+
+}
+
+.reponse:hover{
+    background-color: var(--black);
+    color:white;
+}
+
+#bouton-suivant{
+    color:white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    width: 230px;
+    padding:10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor:pointer;
+    display:block; /* CENTRE AUTOMATIQUEMENT */
+}
+
+#boutons-fin{
+    display:none;
+    text-align:center;
+    margin-top:30px;
+}
+
+/* -------------------------------------- TOUS LES QCM FIN------------------------------------------------------ */
+
+/* -------------------------------------- QCM 6EME ------------------------------------------------------ */
+
+.QCM6eme{
+    background-color: var(--red);
+}
+
+.QCM6eme #bouton-suivant{
+    background-color: var(--red);
+}
+
+.QCM6eme .app-qcm {
+    position: relative; 
+}
+.QCM6eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 105%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-maths.png) no-repeat center/contain;
+    z-index: 0;
+}
+
+@media screen and (max-width:1000px){
+   .QCM6eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-maths.png) no-repeat center/contain;
+    z-index: 0;
+    } 
+}
+
+/* -------------------------------------- QCM 5EME ------------------------------------------------------ */
+
+.QCM5eme{
+    background-color: var(--green);
+}
+
+.QCM5eme #bouton-suivant{
+    background-color: var(--green);
+}
+
+.QCM5eme .app-qcm {
+    position: relative; 
+}
+.QCM5eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 105%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-svt.png) no-repeat center/contain;
+    z-index: 0;
+}
+
+@media screen and (max-width:1000px){
+   .QCM5eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-svt.png) no-repeat center/contain;
+    z-index: 0;
+    } 
+}
+
+/* -------------------------------------- QCM 4EME ------------------------------------------------------ */
+
+.QCM4eme{
+    background-color: var(--purple);
+}
+
+.QCM4eme #bouton-suivant{
+    background-color: var(--purple);
+}
+
+.QCM4eme .app-qcm {
+    position: relative; 
+}
+.QCM4eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 105%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-physique.png) no-repeat center/contain;
+    z-index: 0;
+}
+
+@media screen and (max-width:1000px){
+   .QCM4eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-physique.png) no-repeat center/contain;
+    z-index: 0;
+    } 
+}
+
+/* -------------------------------------- QCM 3EME ------------------------------------------------------ */
+
+.QCM3eme{
+    background-color: var(--blue);
+}
+
+.QCM3eme #bouton-suivant{
+    background-color: var(--blue);
+}
+
+.QCM3eme .app-qcm {
+    position: relative; 
+}
+.QCM3eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 105%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-fr.png) no-repeat center/contain;
+    z-index: 0;
+}
+
+@media screen and (max-width:1000px){
+   .QCM3eme .app-qcm::before {
+    content: "";
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: 100%;
+    background: url(./assets/icon-fr.png) no-repeat center/contain;
+    z-index: 0;
+    } 
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/TORA.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>QCM - 3ème</title>
+</head>
+<body class="QCM3eme">
+  <div class="app-qcm">
+    <h1>QCM - Les Compléments circonstanciels 📚</h1>
+    <div class="qcm">
+      <h2 id="question"></h2>
+      <div id="boutons-reponse">
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+      </div>
+      <button id="bouton-suivant">Question suivante 🐯 🡆</button>
+
+      <!-- Boutons affichés à la fin du qcm -->
+      <div id="boutons-fin">
+        <button id="bouton-recommencer" class="bouton-cours bouton-fin">🔁 Recommencer le QCM</button>
+        <a href="3eme.html">
+          <button class="bouton-cours bouton-fin">📚 Retour au cours</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const questions = [
+    {
+      question: "Dans la phrase : « Léo révise ses leçons tous les soirs », quel est le complément circonstanciel ?",
+      reponses: [
+        { contenu: "A. ses leçons", vraioufaux: false },
+        { contenu: "B. révise", vraioufaux: false },
+        { contenu: "C. tous les soirs", vraioufaux: true },
+        { contenu: "D. Léo", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Quel complément circonstanciel répond à la question « Où ? » ?",
+      reponses: [
+        { contenu: "A. demain", vraioufaux: false },
+        { contenu: "B. lentement", vraioufaux: false },
+        { contenu: "C. dans la cuisine", vraioufaux: true },
+        { contenu: "D. pour réussir", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Laquelle de ces phrases contient un complément circonstanciel de but ?",
+      reponses: [
+        { contenu: "A. Elle danse sur la scène.", vraioufaux: false },
+        { contenu: "B. Il court pour gagner la course.", vraioufaux: true },
+        { contenu: "C. Ils se lèvent tôt.", vraioufaux: false },
+        { contenu: "D. Tu parles fort.", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Comment reconnaît-on un complément circonstanciel ?",
+      reponses: [
+        { contenu: "A. Il est toujours placé après le verbe.", vraioufaux: false },
+        { contenu: "B. Il complète un nom.", vraioufaux: false },
+        { contenu: "C. Il est souvent déplaçable et supprimable.", vraioufaux: true },
+        { contenu: "D. Il commence toujours par une préposition.", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Combien y a-t-il de compléments circonstanciels dans la phrase : « Ce matin, Clara a travaillé à la bibliothèque pour son exposé » ?",
+      reponses: [
+        { contenu: "A. Un", vraioufaux: false },
+        { contenu: "B. Deux", vraioufaux: false },
+        { contenu: "C. Trois", vraioufaux: true },
+        { contenu: "D. Aucun", vraioufaux: false },
+      ],
+    },
+  ];
+</script>
+  <script src="scriptqcm.js"></script>
+</body>
+</html>

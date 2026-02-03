@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/TORA.png">
+    <link rel="stylesheet" href="style.css">
+    <title>QCM - 5ème</title>
+</head>
+<body class="QCM5eme">
+    <div class="app-qcm">
+        <h1>QCM - La nutrition des végétaux 🌱</h1>
+        <div class="qcm">
+            <h2 id="question"></h2>
+            <div id="boutons-reponse">
+                <button class="reponse"></button>
+                <button class="reponse"></button>
+                <button class="reponse"></button>
+                <button class="reponse"></button>
+            </div>
+            <button id="bouton-suivant">Question suivante 🐯 🡆</button>
+
+            <!-- Boutons affichés à la fin du qcm -->
+            <div id="boutons-fin">
+                <button id="bouton-recommencer" class="bouton-cours bouton-fin">🔁 Recommencer le QCM</button>
+                <a href="5eme.html">
+                <button class="bouton-cours bouton-fin">📚 Retour au cours</button>
+                </a>
+            </div>
+    <script>
+        const questions = [
+  {
+    question: "Quelle est la fonction des racines chez la plante ?",
+    reponses: [
+      { contenu: "A. Elles fabriquent de la chlorophylle", vraioufaux: false },
+      {
+        contenu: "B. Elles absorbent l’eau et les sels minéraux",
+        vraioufaux: true,
+      },
+      { contenu: "C. Elles rejettent du dioxygène", vraioufaux: false },
+      { contenu: "D. Elles captent la lumière", vraioufaux: false },
+    ],
+  },
+  {
+    question: "Où se déroule la photosynthèse dans la plante ?",
+    reponses: [
+      { contenu: "A. Dans les racines", vraioufaux: false },
+      { contenu: "B. Dans la sève", vraioufaux: false },
+      { contenu: "C. Dans les chloroplastes des feuilles", vraioufaux: true },
+      { contenu: "D. Dans les poils absorbants", vraioufaux: false },
+    ],
+  },
+  {
+    question: "Que produit la plante lors de la photosynthèse ?",
+    reponses: [
+      { contenu: "A. Du dioxyde de carbone et de l’eau", vraioufaux: false },
+      { contenu: "B. Du glucose et du dioxygène", vraioufaux: true },
+      { contenu: "C. Du sel et du sucre", vraioufaux: false },
+      { contenu: "D. De la lumière et de la chlorophylle", vraioufaux: false },
+    ],
+  },
+  {
+    question: "Par où le dioxygène quitte-t-il la plante ?",
+    reponses: [
+      { contenu: "A. Par les chloroplastes", vraioufaux: false },
+      { contenu: "B. Par les racines", vraioufaux: false },
+      { contenu: "C. Par la tige", vraioufaux: false },
+      { contenu: "D. Par les stomates des feuilles", vraioufaux: true },
+    ],
+  },
+  {
+    question: "À quoi sert le glucose produit par la plante ?",
+    reponses: [
+      { contenu: "A. À attirer les insectes", vraioufaux: false },
+      { contenu: "B. À colorer les feuilles", vraioufaux: false },
+      {
+        contenu: "C. À produire de l’énergie et construire ses tissus",
+        vraioufaux: true,
+      },
+      {
+        contenu: "D. À faire tomber les feuilles en automne",
+        vraioufaux: false,
+      },
+    ],
+  },
+];
+    </script>
+    <script src="scriptqcm.js"></script>   
+</body>
+</html>
+

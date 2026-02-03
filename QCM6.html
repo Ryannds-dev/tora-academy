@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/TORA.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>QCM - 6ème</title>
+</head>
+<body class="QCM6eme">
+  <div class="app-qcm">
+    <h1>QCM - Les fractions ➗</h1>
+    <div class="qcm">
+      <h2 id="question"></h2>
+      <div id="boutons-reponse">
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+      </div>
+      <button id="bouton-suivant">Question suivante 🐯 🡆</button>
+
+      <!-- Boutons affichés à la fin du qcm -->
+      <div id="boutons-fin">
+        <button id="bouton-recommencer" class="bouton-cours bouton-fin">🔁 Recommencer le QCM</button>
+        <a href="6eme.html">
+          <button class="bouton-cours bouton-fin">📚 Retour au cours</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const questions = [
+    {
+      question: "Comment s’appelle le nombre en bas d’une fraction ?",
+      reponses: [
+        { contenu: "A. Le partageur", vraioufaux: false },
+        { contenu: "B. Le diviseur", vraioufaux: false },
+        { contenu: "C. Le dénominateur", vraioufaux: true },
+        { contenu: "D. Le multiplicateur", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Quelle fraction représente la moitié d’un tout ?",
+      reponses: [
+        { contenu: "A. 2/2", vraioufaux: false },
+        { contenu: "B. 1/3", vraioufaux: false },
+        { contenu: "C. 1/2", vraioufaux: true },
+        { contenu: "D. 3/4", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Tu as une pizza coupée en 6 parts égales. Tu en manges 4. Quelle fraction représente ce que tu as mangé ?",
+      reponses: [
+        { contenu: "A. 4/6", vraioufaux: true },
+        { contenu: "B. 6/4", vraioufaux: false },
+        { contenu: "C. 2/6", vraioufaux: false },
+        { contenu: "D. 1/6", vraioufaux: false },
+      ],
+    },
+    {
+      question: "Que signifie la fraction 3/8 ?",
+      reponses: [
+        { contenu: "A. J’ai mangé 3 pizzas de 8 parts", vraioufaux: false },
+        { contenu: "B. J’ai partagé 3 parts en 8", vraioufaux: false },
+        { contenu: "C. J’ai 8 parts sur 3", vraioufaux: false },
+        { contenu: "D. J’ai 3 parts sur 8", vraioufaux: true },
+      ],
+    },
+    {
+      question: "Pourquoi dit-on que 5/8 est plus pratique que 0,625 dans certains cas ?",
+      reponses: [
+        { contenu: "A. Parce que 0,625 est plus petit que 5/8", vraioufaux: false },
+        { contenu: "B. Parce que 0,625 est trop difficile à calculer", vraioufaux: false },
+        { contenu: "C. Parce que 5/8 est plus joli à écrire", vraioufaux: false },
+        { contenu: "D. Parce que 5/8 est plus facile à visualiser et à partager", vraioufaux: true },
+      ],
+    },
+  ];
+</script>
+  <script src="scriptqcm.js"></script>
+</body>
+</html>

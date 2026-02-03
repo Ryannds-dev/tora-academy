@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/TORA.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>QCM - 4ème</title>
+</head>
+<body class="QCM4eme">
+  <div class="app-qcm">
+    <h1>QCM - Les états de la matière ⚛️</h1>
+    <div class="qcm">
+      <h2 id="question"></h2>
+      <div id="boutons-reponse">
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+        <button class="reponse"></button>
+      </div>
+      <button id="bouton-suivant">Question suivante 🐯 🡆</button>
+
+      <!-- Boutons affichés à la fin du qcm -->
+      <div id="boutons-fin">
+        <button id="bouton-recommencer" class="bouton-cours bouton-fin">🔁 Recommencer le QCM</button>
+        <a href="4eme.html">
+          <button class="bouton-cours bouton-fin">📚 Retour au cours</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Qu’est-ce qu’une molécule ?",
+        reponses: [
+          { contenu: "A. Une grande particule visible au microscope", vraioufaux: false },
+          { contenu: "B. Une particule de matière visible à l’œil nu", vraioufaux: false },
+          { contenu: "C. Une toute petite particule invisible à l’œil nu", vraioufaux: true },
+          { contenu: "D. Une goutte d’eau solide", vraioufaux: false },
+        ],
+      },
+      {
+        question: "Dans quel état les molécules sont-elles les plus espacées ?",
+        reponses: [
+          { contenu: "A. L’état solide", vraioufaux: false },
+          { contenu: "B. L’état liquide", vraioufaux: false },
+          { contenu: "C. L’état gazeux", vraioufaux: true },
+          { contenu: "D. L’état gluant", vraioufaux: false },
+        ],
+      },
+      {
+        question: "Quel changement d’état transforme un liquide en gaz ?",
+        reponses: [
+          { contenu: "A. Solidification", vraioufaux: false },
+          { contenu: "B. Vaporisation", vraioufaux: true },
+          { contenu: "C. Fusion", vraioufaux: false },
+          { contenu: "D. Sublimation", vraioufaux: false },
+        ],
+      },
+      {
+        question: "Lors de quel changement d’état retire-t-on de l’énergie à la matière ?",
+        reponses: [
+          { contenu: "A. Vaporisation", vraioufaux: false },
+          { contenu: "B. Fusion", vraioufaux: false },
+          { contenu: "C. Sublimation", vraioufaux: false },
+          { contenu: "D. Solidification", vraioufaux: true },
+        ],
+      },
+      {
+        question: "Que se passe-t-il pour la masse quand une matière change d’état ?",
+        reponses: [
+          { contenu: "A. Elle augmente", vraioufaux: false },
+          { contenu: "B. Elle diminue", vraioufaux: false },
+          { contenu: "C. Elle reste la même", vraioufaux: true },
+          { contenu: "D. Elle disparaît", vraioufaux: false },
+        ],
+      },
+    ];
+  </script>
+  <script src="scriptqcm.js"></script>
+</body>
+</html>
