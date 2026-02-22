@@ -10,7 +10,8 @@
 <body>
 
     <section id="Accueil">
-        <video src="./assets/background-video.mp4" autoplay muted loop playsinline></video>
+        <video src="./assets/background-video.mp4" autoplay muted loop playsinline preload="none"></video>
+        <div class="hero-overlay"></div>
         <div id="tora-academy-container">
             <h1>TORA ACADEMY</h1>
         </div>
@@ -23,12 +24,13 @@
                 <li><h2><a href="#contact">CONTACT</a></h2></li>
             </ul>
         </nav>
-        <div class="triangle-haut"></div> 
+        <div class="scroll-indicator" onclick="document.getElementById('a-propos').scrollIntoView({behavior:'smooth'})">↓</div>
+        <div class="triangle-haut"></div>
     </section>
 
     <section id="a-propos">
         <div class="a-propos-left">
-            <img src="./assets/a propos.png" alt="tora-copain img">
+            <img src="./assets/a propos.png" alt="tora-copain img" loading="lazy">
         </div>
         <div class="a-propos-right">
             <h2>POURQUOI TORA ?</h2>
@@ -41,24 +43,24 @@
 
     <section id="les-classes">
         <div class="les-classes-container-haut">
-            <img src="./assets/les classes F.png" alt="les-classes-logo">
+            <img src="./assets/les classes F.png" alt="les-classes-logo" loading="lazy">
         </div>
         <div class="les-classes-container-milieu">
             <div class="panel-des-classes">
                 <div class="la-6-eme">
-                    <img src="./assets/6eme maths.png" alt="6eme img">
+                    <img src="./assets/6eme maths.png" alt="6eme img" loading="lazy">
                     <button>6EME</button>
                 </div>
                 <div class="la-5-eme">
-                    <img src="./assets/5eme SVT.png" alt="5eme img">
+                    <img src="./assets/5eme SVT.png" alt="5eme img" loading="lazy">
                     <button>5EME</button>
                 </div>
                 <div class="la-4-eme">
-                    <img src="./assets/4eme physique chimie.png" alt="4eme img">
+                    <img src="./assets/4eme physique chimie.png" alt="4eme img" loading="lazy">
                     <button>4EME</button>
                 </div>
                 <div class="la-3-eme">
-                    <img src="./assets/3eme francais.png" alt="3eme img">
+                    <img src="./assets/3eme francais.png" alt="3eme img" loading="lazy">
                     <button>3EME</button>
                 </div>                
             </div>
@@ -72,7 +74,7 @@
         <div class="contact-left">
             <div class="ryann-encadre">
                 <h2>CONTACT</h2>
-                <img src="./assets/contact.png" alt="ryann-sakura img">
+                <img src="./assets/contact.png" alt="ryann-sakura img" loading="lazy">
             </div>
         </div>
         <div class="contact-right">

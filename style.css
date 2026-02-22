@@ -3,6 +3,7 @@
     src: url(./fonts/h2-Rowdies/Rowdies-Bold.ttf);
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url(./fonts/nav-ZenKakuGothicAntique/ZenKakuGothicAntique-Bold.ttf);
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
     src: url(./fonts/paragraph-Nunito/Nunito-Regular.ttf);
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,11 @@
     src: url(./fonts/titre-MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf);
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 :root{
@@ -66,21 +74,38 @@ body{
 
 #Accueil{
     position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #Accueil video{
-    width:100vw;
-    height: auto;
-    z-index:-1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.45) 100%);
+    z-index: 1;
 }
 
 #Accueil #tora-academy-container{
     position: absolute;
-    top: 12%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 90vw; 
+    transform: translate(-50%, -50%);
+    width: 90vw;
     text-align: center;
+    z-index: 2;
 }
 
 #Accueil h1{
@@ -92,21 +117,23 @@ body{
 }
 
 nav{
-    position:absolute;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 12vh;
     /* max-height: 15%; */
     display: flex;
     font-family: 'ZenKakuGothicAntique', Impact;
-    background-color:rgba(255, 255, 255, 0.684);
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: var(--sakura) solid 2px;
-    margin-top: 1%;
     padding: 0.5%;
     justify-content: space-between;
-    border-left:none;
-    border-right:none;
+    border-left: none;
+    border-right: none;
+    z-index: 100;
 }
 
 
@@ -156,6 +183,26 @@ nav li:hover::before {
     opacity: 1;
 }
 
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s ease-in-out infinite;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    user-select: none;
+    line-height: 1;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(-12px); }
+}
 
 /* --------------------------------- SECTION ACCUEIL FIN --------------------------------------*/
 
@@ -414,7 +461,7 @@ nav li:hover::before {
     justify-content: center;
     align-items: center;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
-    transform: 0.2s ease;
+    transition: transform 0.2s ease;
     cursor:pointer;
 }
 
@@ -518,8 +565,7 @@ nav li:hover::before {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transform: 0.2s ease;
-
+    transition: transform 0.2s ease;
 }
 
 .contact-right button:hover{
