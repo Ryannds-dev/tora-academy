@@ -1,104 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/TORA.png">
-    <link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/TORA.png" />
+    <link rel="stylesheet" href="style.css" />
     <title>Tora Academy</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <section id="Accueil">
-        <video src="./assets/background-video.mp4" autoplay muted loop playsinline preload="none"></video>
-        <div class="hero-overlay"></div>
-        <div id="tora-academy-container">
-            <h1>TORA ACADEMY</h1>
-        </div>
-        <nav>
-            <img src="./assets/LOGO-TORA.png" alt="TORA LOGO">
-            <ul>
-                <li><h2><a href="#Accueil">ACCUEIL</a></h2></li>
-                <li><h2><a href="#a-propos">À PROPOS</a></h2></li>
-                <li><h2><a href="#les-classes">CLASSES</a></h2></li>
-                <li><h2><a href="#contact">CONTACT</a></h2></li>
-            </ul>
-        </nav>
-        <div class="scroll-indicator" onclick="document.getElementById('a-propos').scrollIntoView({behavior:'smooth'})">↓</div>
-        <div class="triangle-haut"></div>
+      <div id="tora-academy-container">
+        <h1>TORA ACADEMY</h1>
+        <p class="hero-subtitle">Apprends. Progresse. Deviens un héros.</p>
+      </div>
+      <nav>
+        <img src="./assets/LOGO-TORA.png" alt="TORA LOGO" />
+        <ul>
+          <li>
+            <h2><a href="#Accueil">ACCUEIL</a></h2>
+          </li>
+          <li>
+            <h2><a href="#a-propos">À PROPOS</a></h2>
+          </li>
+          <li>
+            <h2><a href="#les-classes">CLASSES</a></h2>
+          </li>
+          <li>
+            <h2><a href="#contact">CONTACT</a></h2>
+          </li>
+        </ul>
+        <button class="burger" id="burger-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      <div
+        class="scroll-indicator"
+        onclick="
+          document
+            .getElementById('a-propos')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        ↓
+      </div>
+      <div class="triangle-haut"></div>
     </section>
 
-    <section id="a-propos">
-        <div class="a-propos-left">
-            <img src="./assets/a propos.png" alt="tora-copain img" loading="lazy">
-        </div>
-        <div class="a-propos-right">
-            <h2>POURQUOI TORA ?</h2>
-            <p>Sur Tora, chaque élève devient un héros dans un univers où l'apprentissage est à la fois amusant et adapté à ses besoins. 
-            Grâce à une méthode unique, alliant cours simplifiés, quêtes interactives et jeux pédagogiques, Tora permet de comprendre 
-            les notions de manière pratique et engageante.
-            </p>
-        </div>
+    <section id="a-propos" class="reveal">
+      <div class="a-propos-left">
+        <img src="./assets/a propos.png" alt="tora-copain img" loading="lazy" />
+      </div>
+      <div class="a-propos-right">
+        <h2>POURQUOI TORA ?</h2>
+        <p>
+          Sur Tora, chaque élève devient un héros dans un univers où
+          l'apprentissage est à la fois amusant et adapté à ses besoins. Grâce à
+          une méthode unique, alliant cours simplifiés, quêtes interactives et
+          jeux pédagogiques, Tora permet de comprendre les notions de manière
+          pratique et engageante.
+        </p>
+      </div>
     </section>
 
-    <section id="les-classes">
-        <div class="les-classes-container-haut">
-            <img src="./assets/les classes F.png" alt="les-classes-logo" loading="lazy">
+    <section id="les-classes" class="reveal">
+      <div class="les-classes-container-haut">
+        <img
+          src="./assets/les classes F.png"
+          alt="les-classes-logo"
+          loading="lazy"
+        />
+      </div>
+      <div class="les-classes-container-milieu">
+        <div class="panel-des-classes">
+          <div class="la-6-eme">
+            <img src="./assets/6eme maths.png" alt="6eme img" loading="lazy" />
+            <button>6EME</button>
+          </div>
+          <div class="la-5-eme">
+            <img src="./assets/5eme SVT.png" alt="5eme img" loading="lazy" />
+            <button>5EME</button>
+          </div>
+          <div class="la-4-eme">
+            <img
+              src="./assets/4eme physique chimie.png"
+              alt="4eme img"
+              loading="lazy"
+            />
+            <button>4EME</button>
+          </div>
+          <div class="la-3-eme">
+            <img
+              src="./assets/3eme francais.png"
+              alt="3eme img"
+              loading="lazy"
+            />
+            <button>3EME</button>
+          </div>
         </div>
-        <div class="les-classes-container-milieu">
-            <div class="panel-des-classes">
-                <div class="la-6-eme">
-                    <img src="./assets/6eme maths.png" alt="6eme img" loading="lazy">
-                    <button>6EME</button>
-                </div>
-                <div class="la-5-eme">
-                    <img src="./assets/5eme SVT.png" alt="5eme img" loading="lazy">
-                    <button>5EME</button>
-                </div>
-                <div class="la-4-eme">
-                    <img src="./assets/4eme physique chimie.png" alt="4eme img" loading="lazy">
-                    <button>4EME</button>
-                </div>
-                <div class="la-3-eme">
-                    <img src="./assets/3eme francais.png" alt="3eme img" loading="lazy">
-                    <button>3EME</button>
-                </div>                
-            </div>
-        </div>
-        <div class="les-classes-container-bas">
-            <button id="valider-classe">VALIDER</button>
-        </div>
+      </div>
+      <div class="les-classes-container-bas">
+        <button id="valider-classe">VALIDER</button>
+      </div>
     </section>
 
-    <section id="contact">
-        <div class="contact-left">
-            <div class="ryann-encadre">
-                <h2>CONTACT</h2>
-                <img src="./assets/contact.png" alt="ryann-sakura img" loading="lazy">
-            </div>
+    <section id="contact" class="reveal">
+      <div class="contact-left">
+        <div class="ryann-encadre">
+          <h2>CONTACT</h2>
+          <img
+            src="./assets/contact.png"
+            alt="ryann-sakura img"
+            loading="lazy"
+          />
         </div>
-        <div class="contact-right">
-            <form action="https://formspree.io/f/xnnzznjb" method="POST">
-                <input type="text" name="nom" id="nom" placeholder="Nom" required>
-                <input type="email" name="email" id="mail" placeholder="Mail" required>
-                <textarea name="message" id="message" placeholder="Message" required></textarea>
-                <button type="submit">ENVOYER</button>
-            </form>
-        </div>
+      </div>
+      <div class="contact-right">
+        <form action="https://formspree.io/f/xnnzznjb" method="POST">
+          <input type="text" name="nom" id="nom" placeholder="Nom" required />
+          <input
+            type="email"
+            name="email"
+            id="mail"
+            placeholder="Mail"
+            required
+          />
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message"
+            required
+          ></textarea>
+          <button type="submit">ENVOYER</button>
+        </form>
+      </div>
     </section>
 
     <footer>
-        <div class="footer-left">
-            <a href="https://www.linkedin.com/in/ryann-dera-schtyk/">
-                <img src="./assets/linkedin logo blanc.png" class="logo-linkedin" alt="linkedin logo">
-            </a>
-        </div>
-        <div class="footer-right">
-            <p>📌 Projet personnel réalisé par DERA--SCHTYK Ryann</p>
-            <p>© 2025 - Projet en évolution</p>
-        </div>
+      <div class="footer-left">
+        <a href="https://www.linkedin.com/in/ryann-dera-schtyk/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="./assets/linkedin logo blanc.png"
+            class="logo-linkedin"
+            alt="linkedin logo"
+          />
+        </a>
+      </div>
+      <div class="footer-right">
+        <p>📌 Projet personnel réalisé par DERA-SCHTYK Ryann</p>
+        <p>© 2025 - Projet en évolution</p>
+      </div>
     </footer>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -27,14 +27,14 @@ function afficherQuestion() {
       // Empêche de cliquer plusieurs fois
       const tousLesBoutons = boutonsReponse.querySelectorAll("button");
       tousLesBoutons.forEach(
-        (boutonReponse) => (boutonReponse.disabled = true)
+        (boutonReponse) => (boutonReponse.disabled = true),
       );
 
       // Coloration de toutes les réponses
       tousLesBoutons.forEach((boutonReponse) => {
         const texte = boutonReponse.textContent;
         const bonne = questionActuelle.reponses.find(
-          (reponse) => reponse.vraioufaux && reponse.contenu === texte
+          (reponse) => reponse.vraioufaux && reponse.contenu === texte,
         );
         if (bonne) {
           boutonReponse.style.backgroundColor = "#28a745";

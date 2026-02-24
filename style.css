@@ -1,256 +1,317 @@
 @font-face {
-    font-family: 'Rowdies';
-    src: url(./fonts/h2-Rowdies/Rowdies-Bold.ttf);
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Rowdies";
+  src: url(./fonts/h2-Rowdies/Rowdies-Bold.ttf);
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'ZenKakuGothicAntique';
-    src: url(./fonts/nav-ZenKakuGothicAntique/ZenKakuGothicAntique-Bold.ttf);
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "ZenKakuGothicAntique";
+  src: url(./fonts/nav-ZenKakuGothicAntique/ZenKakuGothicAntique-Bold.ttf);
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Nunito';
-    src: url(./fonts/paragraph-Nunito/Nunito-Regular.ttf);
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Nunito";
+  src: url(./fonts/paragraph-Nunito/Nunito-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'MPLUSRounded1c';
-    src: url(./fonts/titre-MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf);
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+  font-family: "MPLUSRounded1c";
+  src: url(./fonts/titre-MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf);
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
-:root{
-    --cream:#FCECEB;
-    --sakura:#ED90A0;
-    --sakura-transp:#ed90a091;
-    --trunk:#4F333D;
-    --sky:#258DC5;
-    --grass:#DCD349;
-    --red:#A6262B;
-    --redtransp:#a6262ac5;
-    --orange:#FB963C;
-    --black:#121212;
-
-    --green:#2F900B;
-    --greentransp:#2e900b6d;
-    --purple:#6802C2;
-    --purpletransp:#6802c270;
-    --blue:#1f2aa2;
-    --bluetransp:#1922807a;
+body {
+  overflow: hidden;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --cream: #fceceb;
+  --sakura: #ed90a0;
+  --sakura-transp: #ed90a091;
+  --trunk: #4f333d;
+  --sky: #258dc5;
+  --grass: #dcd349;
+  --red: #a6262b;
+  --redtransp: #a6262ac5;
+  --orange: #fb963c;
+  --black: #121212;
+
+  --green: #2f900b;
+  --greentransp: #2e900b6d;
+  --purple: #6802c2;
+  --purpletransp: #6802c270;
+  --blue: #1f2aa2;
+  --bluetransp: #1922807a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
-    text-decoration: none;   /* enlève le soulignement */
-    color: inherit;          /* hérite de la couleur du parent (ex : le <h2>) */
+  text-decoration: none;
+  color: inherit;
 }
 
-body{
-    /* parce qu'il y a un débordement à droite à cause de la vidéo je crois */
-    overflow-x: hidden;
+/* Décale les ancres sous la nav fixe sans ajouter d'espace scrollable hors-page */
+#a-propos,
+#les-classes,
+#contact {
+  scroll-margin-top: 70px;
 }
 
-/* --------------------------------- SECTION ACCUEIL --------------------------------------*/
+/* ===== SECTION ACCUEIL ===== */
 
-#Accueil{
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+#Accueil {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)),
+    url(./assets/fond_banner.webp);
+  background-size: cover;
+  background-position: center;
 }
 
-#Accueil video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+#Accueil #tora-academy-container {
+  position: absolute;
+  top: calc(50% + 35px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  text-align: center;
+  z-index: 2;
 }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom,
-        rgba(0,0,0,0.35) 0%,
-        rgba(0,0,0,0.1) 50%,
-        rgba(0,0,0,0.45) 100%);
-    z-index: 1;
+#Accueil h1 {
+  font-family: "MPLUSRounded1c", Impact;
+  color: white;
+  -webkit-text-stroke: var(--trunk) 4px;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  user-select: none;
+  line-height: 1.1;
 }
 
-#Accueil #tora-academy-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vw;
-    text-align: center;
-    z-index: 2;
+.hero-subtitle {
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  color: white;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  user-select: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
-#Accueil h1{
-    font-family: 'MPLUSRounded1c', Impact;
-    color: var(--sakura);
-    -webkit-text-stroke: white 5px;
-    font-size: 10vw; /* pas en rem pour que ce soit responsive sinon ça déborde*/
-    user-select: none;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  font-family: "ZenKakuGothicAntique", Impact;
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--sakura) solid 2px;
+  padding: 0 1.5%;
+  justify-content: space-between;
+  align-items: center;
+  border-left: none;
+  border-right: none;
+  z-index: 100;
 }
 
-nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 12vh;
-    /* max-height: 15%; */
-    display: flex;
-    font-family: 'ZenKakuGothicAntique', Impact;
-    background-color: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: var(--sakura) solid 2px;
-    padding: 0.5%;
-    justify-content: space-between;
-    border-left: none;
-    border-right: none;
-    z-index: 100;
+nav img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
-
-
-nav img{
-    width: auto;           
-    height: 100%;  
-    object-fit: contain;       
-    /* border:#A6262B 2px solid; */
-}
-
-nav ul{
-    list-style: none;
-    display: flex;
-    width:80%;
-    justify-content: space-evenly;
-    align-items:center;
-    font-size: 1.2vw;
-    user-select: none;
+nav ul {
+  list-style: none;
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: stretch;
+  font-size: clamp(0.65rem, 1vw, 0.9rem);
+  user-select: none;
 }
 
 nav li {
-    position: relative;
-    cursor: pointer;
-    z-index: 1;
-    height: 100%; /* permet au ::before d'après de remplir la hauteur de la nav */
-    display: flex;
-    align-items: center;
-    padding: 0 1vw; /* un peu d'espace à gauche/droite pour le ::before */
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1vw;
 }
 
 nav li::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--sakura-transp);
-    opacity: 0;
-    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
-    transition: opacity 0.2s ease;
-    border-radius: 8px;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--sakura-transp);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease;
+  border-radius: 8px;
 }
 
 nav li:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
 
+/* Burger (caché sur desktop) */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: 2px solid var(--trunk);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+  z-index: 101;
+}
+
+.burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--trunk);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    animation: bounce 2s ease-in-out infinite;
-    cursor: pointer;
-    font-size: 2.5rem;
-    color: white;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    user-select: none;
-    line-height: 1;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s ease-in-out infinite;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  line-height: 1;
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(-12px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-12px);
+  }
 }
 
-/* --------------------------------- SECTION ACCUEIL FIN --------------------------------------*/
+/* ===== SCROLL REVEAL ===== */
 
-/* --------------------------------- SECTION A PROPOS --------------------------------------*/
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SECTION À PROPOS ===== */
 
 .triangle-haut {
-    position:absolute;
-    background: rgb(255, 255, 255);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    width: 14vw;
-    /* height: 140px; */
-    aspect-ratio: 5 / 3;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:0;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  width: 14vw;
+  aspect-ratio: 5 / 3;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
 }
 
-#a-propos{
-    position:relative;
-    background-color: white;
-    min-height:10vh;
-    display: flex;
-    /* border:var(--grass) 10px solid */
+#a-propos {
+  position: relative;
+  background-color: white;
+  min-height: 10vh;
+  display: flex;
 }
 
-#a-propos::before{
-    content:"";
-    background: var(--grass);
-    position: absolute;
-    width: 100%;
-    height: 1.5%;
-    left:50%;
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
+#a-propos::before {
+  content: "";
+  background: var(--grass);
+  position: absolute;
+  width: 100%;
+  height: 1.5%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
 }
 
-#a-propos::after{
-    content:"";
-    background: var(--grass);
-    position: absolute;
-    width: 100%;
-    height: 1.5%;
-    left:50%;
-    transform: translateX(-50%) scaleX(0);
-    bottom:0%;
-    transform-origin: center;
+#a-propos::after {
+  content: "";
+  background: var(--grass);
+  position: absolute;
+  width: 100%;
+  height: 1.5%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  bottom: 0%;
+  transform-origin: center;
 }
-
 
 @keyframes lineanim {
   from {
@@ -269,398 +330,617 @@ nav li:hover::before {
   animation: lineanim 0.8s ease-out forwards;
 }
 
-.a-propos-left{
-    width: 30%;
-    height: auto;
-    display: flex;
-    align-items: center;
+.a-propos-left {
+  width: 30%;
+  height: auto;
+  display: flex;
+  align-items: center;
 }
 
-.a-propos-left img{
-    width:100%;
-    height:auto;
+.a-propos-left img {
+  width: 100%;
+  height: auto;
 }
 
-.a-propos-right{
-    margin: 3vh;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
+.a-propos-right {
+  margin: 3vh;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
-.a-propos-right h2{
-    width: 65%;
-    background-color: var(--grass);
-    border-radius: 25px;
-    padding: 9px;
-    display: inline-block; /*Pour enlever le display block tout en acceptant padding margin contrairement à inline*/
-    font-family: 'Rowdies', Impact;
-    color: var(--orange);
-    -webkit-text-stroke: var(--black) 0.4vw;
-    font-size: 4vw;
-    border:var(--black) 1px solid;
+.a-propos-right h2 {
+  width: 65%;
+  background-color: var(--grass);
+  border-radius: 25px;
+  padding: 9px;
+  display: inline-block;
+  font-family: "Rowdies", Impact;
+  color: var(--orange);
+  -webkit-text-stroke: var(--black) clamp(1px, 0.3vw, 3px);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: var(--black) 1px solid;
 }
 
-.a-propos-right p{
-    background-color: var(--grass);
-    border-radius: 25px;
-    border:var(--black) 2px solid;
-    font-family:'Nunito',Impact;
-    font-weight: bold;
-    padding:20px;
-    padding-top: 30px;
-    width: 90%;
-    height: 100%;
-    max-height:90%;
-    font-size: 2vw;
-    text-align:justify;
-    position:relative;
-    
+.a-propos-right p {
+  background-color: var(--grass);
+  border-radius: 25px;
+  border: var(--black) 2px solid;
+  font-family: "Nunito", Impact;
+  font-weight: bold;
+  padding: clamp(14px, 2vw, 24px);
+  padding-top: clamp(18px, 2.5vw, 30px);
+  width: 90%;
+  height: 100%;
+  max-height: 90%;
+  font-size: clamp(0.85rem, 1.6vw, 1.15rem);
+  text-align: justify;
+  line-height: 1.6;
 }
 
-.a-propos-right p::before{
-    content:"";
-    background-image:url(./assets/sakura.webp);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position:absolute;
-    width: 10%;
-    height:30%;
-    /* top:15%;
-    right:7%; */
-    /* transform cheat code pour responsive mais il doit y avoir meilleure méthode que à la louche comme ça */
-    /* transform:translate(-14%,-99%); */
-    top:0;
-    left:0;
-    transform:translate(910%, -60%)
+/* ===== SECTION LES CLASSES ===== */
 
+#les-classes {
+  background: url(./assets/ciel.png);
+  display: flex;
+  flex-direction: column;
+  padding-top: 1%;
 }
 
-/* --------------------------------- SECTION A PROPOS FIN --------------------------------------*/
-
-/* --------------------------------- SECTION LES CLASSES --------------------------------------*/
-
-#les-classes{
-    background:url(./assets/ciel.png);
-    display: flex;
-    flex-direction: column;
-    padding-top:1%
+.les-classes-container-haut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.les-classes-container-haut{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.les-classes-container-haut img {
+  width: 30%;
 }
 
-.les-classes-container-haut img{
-    width: 30%;
+.panel-des-classes {
+  border-radius: 25px;
+  margin: -2% 5% 0 5%;
+  height: 80%;
+  display: flex;
+  overflow: hidden;
+  border: #121212 2px solid;
 }
 
-.panel-des-classes{
-    border-radius: 25px;
-    margin:-2% 5% 0 5%;
-    height: 80%;
-    display: flex;
-    overflow:hidden;
-    border:#121212 2px solid;
+.panel-des-classes img {
+  width: 100%;
+  height: 100%;
 }
 
-
-
-.panel-des-classes img{
-    width: 100%;
-    height: 100%;
+.la-6-eme,
+.la-5-eme,
+.la-4-eme,
+.la-3-eme {
+  position: relative;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition:
+    filter 0.3s ease,
+    transform 0.25s ease;
 }
 
-.la-6-eme, .la-5-eme, .la-4-eme, .la-3-eme {
-    position:relative;
-    filter: grayscale(100%);
-    cursor:pointer;
-    transition: filter 0.3s ease;
+.la-6-eme:hover,
+.la-5-eme:hover,
+.la-4-eme:hover,
+.la-3-eme:hover {
+  transform: translateY(-5px);
 }
 
-.classe-selectionnee{
-    filter: grayscale(0%);
-    border: var(--sakura-transp) 2px solid;
+.classe-selectionnee {
+  filter: grayscale(0%);
+  border: var(--sakura-transp) 2px solid;
 }
 
-.la-6-eme button, .la-5-eme button, .la-4-eme button, .la-3-eme button {
-    position:absolute;
-    transform: translateX(-50%);
-    left:50%;
-    bottom:5%;
-    background:#FCECEB;
-    border-radius:50px;
-    font-size: 3vw;
-    padding-bottom: 2%;
-    width:50%;
-    height:10%;
-    border:none;
-    font-family: 'ZenKakuGothicAntique', Impact;
-    /* text-align: center; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.la-6-eme button,
+.la-5-eme button,
+.la-4-eme button,
+.la-3-eme button {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 5%;
+  background: #fceceb;
+  border-radius: 50px;
+  font-size: 3vw;
+  padding-bottom: 2%;
+  width: 50%;
+  height: 10%;
+  border: none;
+  font-family: "ZenKakuGothicAntique", Impact;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.la-6-eme button{
-    color:var(--red)
-}
-
-.la-5-eme button{
-    color:var(--green)
-}
-
-.la-4-eme button{
-    color:var(--purple)
-}
-
-.la-3-eme button{
-    color:var(--blue)
-}
+.la-6-eme button { color: var(--red); }
+.la-5-eme button { color: var(--green); }
+.la-4-eme button { color: var(--purple); }
+.la-3-eme button { color: var(--blue); }
 
 .les-classes-container-bas {
-    height: 10vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-bottom:8%;
-    /* border: #A6262B solid 2px; */
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 8%;
 }
 
-/* .les-classes-container-bas button {
-    color: black;
-    font-size:1.5rem;
-    border:none;
-    clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);
-    width: 25%;
-    height: 30%;
-    position:absolute;
-    top:5%;
-    filter: drop-shadow(10% 6% 10% rgba(0,0,0,0.3));
-
-} */
-
-
 .les-classes-container-bas button {
-    /* le clip path empêchait le drop shadow et les bordures de s'afficher correctement */
-    color: black;
-    font-size: 4rem;
-    border: black 2px solid;
-    border-radius: 25px;
-    width: 25%;
-    height: 80%;
-    position: absolute;
-    top: -2%;
-    background-color: var(--cream);
-    font-family: 'ZenKakuGothicAntique', Impact;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
-    transition: transform 0.2s ease;
-    cursor:pointer;
+  color: black;
+  font-size: 4rem;
+  border: black 2px solid;
+  border-radius: 25px;
+  width: 25%;
+  height: 80%;
+  position: absolute;
+  top: -2%;
+  background-color: var(--cream);
+  font-family: "ZenKakuGothicAntique", Impact;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .les-classes-container-bas button:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-/* --------------------------------- SECTION LES CLASSES FIN --------------------------------------*/
+/* ===== SECTION CONTACT ===== */
 
-/* --------------------------------- SECTION CONTACT --------------------------------------*/
-
-#contact{
-    background-color: var(--trunk);
-    min-height:100%;
-    display: flex;
-    justify-content: center;
+#contact {
+  background-color: var(--trunk);
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.contact-left{
-    /* correction du bouton envoyer qui débordait sur le footer grâce à Milo */
-    width:45%;
+.contact-left {
+  width: 45%;
 }
 
-.ryann-encadre{
-    background-color: rgba(0, 0, 0, 0.511);
-    border-radius:25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin:7%;
-    padding-bottom:30%;
-    width:80%;
+.ryann-encadre {
+  background-color: rgba(0, 0, 0, 0.511);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 7%;
+  padding-bottom: 30%;
+  width: 80%;
 }
 
-.ryann-encadre h2{
-    font-family: 'Rowdies', Impact;
-    color: var(--sakura);
-    -webkit-text-stroke: var(--black) 0.2vw;
-    font-size: 3.5vw;
+.ryann-encadre h2 {
+  font-family: "Rowdies", Impact;
+  color: var(--sakura);
+  -webkit-text-stroke: var(--black) 0.2vw;
+  font-size: 3.5vw;
 }
 
-.ryann-encadre img{
-    width: 75%;
+.ryann-encadre img {
+  width: 75%;
+  filter: sepia(80%) hue-rotate(285deg) saturate(220%) brightness(0.9);
 }
 
-.contact-right{
-    width:70%;
-    /* min-height:80vh; */
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    padding:2%;
-    font-size:2.5rem;
+.contact-right {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2%;
+  font-size: 2.5rem;
 }
 
 .contact-right input::placeholder,
-.contact-right textarea::placeholder{
-    color:white;
-    padding-left:2%;
-    font-family: 'Nunito', Impact;
-    font-weight:bold;
-    font-size:2.5rem;
+.contact-right textarea::placeholder {
+  color: white;
+  padding-left: 2%;
+  font-family: "Nunito", Impact;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
-.contact-right input{
-    background-color:var(--sakura-transp);
-    color:white;
-    border-radius:10px;
-    border:none;
-    width: 70%;
-    height: 20%;
-    margin-top:2%;
-    font-size:2.5rem;
+.contact-right input {
+  background-color: var(--sakura-transp);
+  color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 70%;
+  height: 20%;
+  margin-top: 2%;
+  font-size: 2.5rem;
+  padding-left: 14px;
+  font-family: "Nunito", sans-serif;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.contact-right textarea{
-    background-color:var(--sakura-transp);
-    color:white;
-    font-size:2.5rem;
-    border-radius:10px;
-    margin-top:4%;
-    width: 70%;
-    height: 70%;
-    padding-top:4%;
-    resize:none;
+.contact-right textarea {
+  background-color: var(--sakura-transp);
+  color: white;
+  font-size: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 4%;
+  width: 70%;
+  height: 70%;
+  padding-top: 4%;
+  padding-left: 14px;
+  resize: none;
+  font-family: "Nunito", sans-serif;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.contact-right button{
-    background-color:var(--sakura-transp);
-    margin-top:2%;
-    border: black 2px solid;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
-    padding:3% 2% 3.5% 2%;
-    border-radius:10%;
-    width: 20%;
-    height: 10%;
-    font-weight:bold;
-    font-size: 2.5rem;
-    display: flex;
-    justify-content: center;
+.contact-right input:focus,
+.contact-right textarea:focus {
+  outline: none;
+  border-color: var(--sakura);
+  box-shadow: 0 0 0 3px rgba(237, 144, 160, 0.4);
+}
+
+.contact-right button {
+  background-color: var(--sakura-transp);
+  margin-top: 2%;
+  border: black 2px solid;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
+  padding: 3% 2% 3.5% 2%;
+  border-radius: 10%;
+  width: 20%;
+  height: 10%;
+  font-weight: bold;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.contact-right button:hover {
+  transform: scale(1.2);
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  background-color: var(--black);
+  display: flex;
+}
+
+.footer-left {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-left img {
+  width: 30%;
+}
+
+.footer-left a {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.footer-right {
+  width: 70%;
+  margin: 1%;
+}
+
+.footer-right p {
+  font-family: "Nunito", Impact;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--cream);
+}
+
+/* ===== RESPONSIVE 768px (page d'accueil) ===== */
+
+@media screen and (max-width: 768px) {
+  nav {
+    height: 55px;
+    padding: 0 12px;
+    flex-wrap: nowrap;
     align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
+  }
 
-.contact-right button:hover{
-    transform:scale(1.2);
-}
+  nav img {
+    height: 36px;
+  }
 
-/* --------------------------------- FOOTER --------------------------------------*/
-
-footer{
-    background-color: var(--black);
+  .burger {
     display: flex;
-}
+    margin-right: 6px;
+  }
 
-.footer-left{
-    width:20%;
-    display: flex;
-    justify-content: center;
+  nav ul {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(252, 236, 235, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--sakura);
+    flex-direction: column;
     align-items: center;
-}
-
-.footer-left img{
-    width:30%
-    
-}
-
-.footer-left a{
-    width:100%;
-    display: flex;
-    justify-content: end;
-}
-
-.footer-right{
-    width:70%;
-    margin:1%
-}
-
-.footer-right p{
-    font-family:'Nunito', Impact;
-    font-weight: bold;
-    font-size:1.5rem;
-    color:var(--cream)
-}
-
-/* --------------------------------- FOOTER FIN --------------------------------------*/
-
-/* --------------------------------- RESPONSIVE PAGE ACCUEIL --------------------------------------*/
-
-@media screen and (max-width:1400px) {
-    #Accueil h1{
-    -webkit-text-stroke: white 2px;
-    }
-
-    nav{
-        height: 3vh;
-    }
-
-    .les-classes-container-bas button {
-        font-size:1.5rem;
-        width:40%;
-        height: 50%;
-    }
-
-     .contact-right input::placeholder,
-     .contact-right textarea::placeholder{
-        font-size:0.8rem;
-    }
-
-    .contact-right input{
-        font-size: 1rem;
-    }
-
-    .contact-right textarea{
+    justify-content: flex-start;
+    gap: 0;
     font-size: 1rem;
-    }
+    align-self: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
+    padding: 0;
+  }
 
-    .contact-right button{
-        font-size:1rem;
-        width:80%;
-    }
+  nav ul.open {
+    max-height: 320px;
+    padding: 0.5rem 0;
+  }
 
-    .footer-right p{
-        font-size:0.6rem;
-    }
+  nav li {
+    width: 100%;
+    height: auto;
+    padding: 0.8rem 2rem;
+    justify-content: center;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  nav li::before {
+    border-radius: 0;
+  }
+
+  #Accueil #tora-academy-container {
+    top: calc(50% + 25px);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.75rem, 3.5vw, 1rem);
+  }
+
+  .scroll-indicator {
+    font-size: 1.8rem;
+  }
+
+  #a-propos {
+    flex-direction: column;
+  }
+
+  .a-propos-left {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .a-propos-left img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .a-propos-right {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .a-propos-right h2 {
+    width: 100%;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+
+  .a-propos-right p {
+    width: 100%;
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    height: auto;
+    max-height: none;
+  }
+
+  .panel-des-classes {
+    flex-wrap: wrap;
+    border-radius: 16px;
+  }
+
+  .la-6-eme,
+  .la-5-eme,
+  .la-4-eme,
+  .la-3-eme {
+    width: 50%;
+    height: 200px;
+  }
+
+  .la-6-eme button,
+  .la-5-eme button,
+  .la-4-eme button,
+  .la-3-eme button {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    height: 12%;
+  }
+
+  .les-classes-container-haut img {
+    width: 60%;
+  }
+
+  .les-classes-container-bas button {
+    font-size: clamp(0.75rem, 4.5vw, 1.3rem);
+    width: fit-content;
+    min-width: 40%;
+    max-width: 85%;
+    height: auto;
+    padding: 0.8rem 2rem;
+    position: static;
+    white-space: nowrap;
+  }
+
+  .les-classes-container-bas {
+    margin-bottom: 5%;
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  #contact {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .contact-left {
+    width: 100%;
+  }
+
+  .ryann-encadre {
+    width: 55%;
+    margin: 1rem auto;
+    padding-bottom: 5%;
+  }
+
+  .ryann-encadre h2 {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+  }
+
+  .contact-right {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .contact-right input {
+    width: 95%;
+    height: auto;
+    padding: 12px 14px;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-right textarea {
+    width: 95%;
+    height: 140px;
+    font-size: 1rem;
+    padding: 12px 14px;
+    padding-top: 12px;
+  }
+
+  .contact-right input::placeholder,
+  .contact-right textarea::placeholder {
+    font-size: 1rem;
+  }
+
+  .contact-right button {
+    width: fit-content;
+    min-width: 30%;
+    max-width: 70%;
+    font-size: clamp(0.75rem, 4vw, 1.1rem);
+    padding: 0.8rem 2rem;
+    height: auto;
+    white-space: nowrap;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-left {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-left a {
+    justify-content: center;
+  }
+
+  .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-right p {
+    font-size: 0.75rem;
+  }
 }
 
-@media screen and (min-width:900px) and (max-width:1400px) {
+/* ===== RESPONSIVE 1400px (page d'accueil) ===== */
 
-    nav{
-        height: 5vh;
-    }
+@media screen and (max-width: 1400px) {
+  #Accueil h1 {
+    -webkit-text-stroke: var(--trunk) 2px;
+  }
+
+  nav {
+    height: 60px;
+  }
+
+  .les-classes-container-bas button {
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    width: fit-content;
+    min-width: 25%;
+    max-width: 60%;
+    height: auto;
+    padding: 0.6rem 2rem;
+    position: static;
+    white-space: nowrap;
+  }
+
+  .les-classes-container-bas {
+    height: auto;
+    padding: 0.8rem 0;
+    margin-bottom: 5%;
+  }
+
+  .contact-right input::placeholder,
+  .contact-right textarea::placeholder {
+    font-size: 1rem;
+  }
+
+  .contact-right input {
+    font-size: 1rem;
+    height: auto;
+    padding: 12px 14px;
+  }
+
+  .contact-right textarea {
+    font-size: 1rem;
+  }
+
+  .contact-right button {
+    font-size: 1.1rem;
+    width: fit-content;
+    min-width: 25%;
+    max-width: 55%;
+    height: auto;
+    padding: 1rem 2rem;
+    white-space: nowrap;
+  }
+
+  .footer-right p {
+    font-size: 0.85rem;
+  }
 }
 
-/* --------------------------------- RESPONSIVE PAGE ACCUEIL FIN --------------------------------------*/
-
-/* --------------------------------- CSS COMMUN AUX PAGES DES CLASSES --------------------------------------*/
+/* ===== CSS COMMUN AUX PAGES DE CLASSE ===== */
 
 .video-cours {
   margin: 2rem auto;
@@ -670,8 +950,8 @@ footer{
   background-color: var(--cream);
   border: 2px dashed var(--red);
   border-radius: 12px;
-  font-family: 'Nunito', sans-serif;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  font-family: "Nunito", sans-serif;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -696,7 +976,7 @@ footer{
   content: "▼ ";
 }
 
-.video-container{
+.video-container {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -707,28 +987,18 @@ footer{
   max-width: 640px;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* SI JAMAIS LES VIDEOS NE PASSENT PAS SUR GITHUB
-
-.video-container iframe {
-  width: 100%;
-  max-width: 640px;
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-} */
-
-.zone-boutons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top:5%;
+.zone-boutons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
 }
 
 .bouton-cours {
-  font-family: 'ZenKakuGothicAntique', sans-serif;
+  font-family: "ZenKakuGothicAntique", sans-serif;
   font-size: 2rem;
   padding: 1rem 2rem;
   margin: 1.5rem 1rem;
@@ -737,7 +1007,7 @@ footer{
   background-color: white;
   color: var(--black);
   cursor: pointer;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
@@ -759,776 +1029,571 @@ footer{
 }
 
 .nav-bar {
-    font-family: 'ZenKakuGothicAntique', Impact;
-    color: var(--black);
-    background: linear-gradient(to right, white, rgb(196, 196, 196));
+  font-family: "ZenKakuGothicAntique", Impact;
+  color: var(--black);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  height: 10vh;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0 2%;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+}
+
+.nav-bar h2 {
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  font-weight: bold;
+  letter-spacing: 0.02em;
 }
 
 .nav-bar ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+  gap: 2rem;
+  list-style: none;
+  user-select: none;
 }
 
 .nav-bar li {
-    position: relative;
-    cursor: pointer;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 1vw;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1vw;
 }
 
-/* --------------------------------- CSS COMMUN AUX PAGES DES CLASSES FIN --------------------------------------*/
-
-
-/* -------------------------------------- 6EME ------------------------------------------------------ */
-
-/* .page-6eme{
-
-nav{
-    font-family: 'ZenKakuGothicAntique', Impact;
-    background-color:rgba(255, 255, 255, 0.684);
+.nav-bar li.non-surligne {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
 }
 
-ul{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    user-select: none;
+/* Burger nav-bar (pages de classe, caché sur desktop) */
+.nav-bar-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: 2px solid var(--trunk);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 6px;
+  z-index: 101;
 }
 
-li{
-    list-style: none;
+.nav-bar-burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--trunk);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform-origin: center;
 }
 
-} ne fonctionne pas en CSS PUR essayer avec SASS un jour*/
- 
-.page-6eme{
-    position:relative;
+.page-6eme .nav-bar-burger { border-color: var(--red); }
+.page-6eme .nav-bar-burger span { background-color: var(--red); }
+.page-5eme .nav-bar-burger { border-color: var(--green); }
+.page-5eme .nav-bar-burger span { background-color: var(--green); }
+.page-4eme .nav-bar-burger { border-color: var(--purple); }
+.page-4eme .nav-bar-burger span { background-color: var(--purple); }
+.page-3eme .nav-bar-burger { border-color: var(--blue); }
+.page-3eme .nav-bar-burger span { background-color: var(--blue); }
+
+.nav-bar-burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-bar-burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-bar-burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-.page-6eme .nav-bar li:not(.non-surligne)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--redtransp);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border-radius: 8px;
-    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
+.page-6eme .nav-bar { border-bottom: 3px solid var(--red); }
+.page-5eme .nav-bar { border-bottom: 3px solid var(--green); }
+.page-4eme .nav-bar { border-bottom: 3px solid var(--purple); }
+.page-3eme .nav-bar { border-bottom: 3px solid var(--blue); }
+
+/* ===== PAGES DE CLASSE ===== */
+
+.page-6eme,
+.page-5eme,
+.page-4eme,
+.page-3eme {
+  position: relative;
 }
 
-.page-6eme .nav-bar li:not(.non-surligne):hover::before {
-    opacity: 1;
-}
-
-.page-6eme .fond-deco-haut{
-    width: 100%;
-    background:url(./assets/fond\ haut.png);
-    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
-    min-height:30vh;
-}
-
-.page-6eme .encadre-6eme{
-    position:absolute;
-    background:var(--red);
-    border-radius: 25px;
-    height: 40vh;
-    width:60%;
-    top:10%;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    align-items: center;
-    padding:5%;
-}
-
-.page-6eme .encadre-6eme img{
-    height: 60vh;
-}
-
-.page-6eme h1{
-    color:white;
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:15rem;
-    user-select: none;
-}
-
-
-.page-6eme .les-cours-6eme{
-    background: linear-gradient(to right, white, rgb(196, 196, 196));
-    min-height:150vh;
-    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
-}
-
-.page-6eme .les-cours-6eme h2{
-    color:var(--red);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:5rem;
-    margin:5%;
-    user-select: none;
-}
-
-.page-6eme .bouton-qcm:hover::after {
-  background-color: var(--red);
-}
-
-/* -------------------------------------- 6EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- RESPONSIVE 6EME ------------------------------------------------------ */
-
-@media screen and (max-width:1400px) {
-    .page-6eme .encadre-6eme img{
-        height:50vh;
-        position:absolute;
-        left:20%;
-        z-index:-1;
-        max-width: 100%;
-        }
-
-    .page-6eme h1{
-        color:white;
-        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
-        -webkit-text-stroke: var(--black) 2px;
-        font-size:5rem;
-        user-select: none;
-    }
-
-    .page-6eme .les-cours-6eme h2{
-    color:var(--red);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:3rem;
-    margin:5%;
-    user-select: none;
-    }
-
-    .page-6eme .bouton-accueil{
-        font-size:1rem;
-    }
-
-    .page-6eme .bouton-qcm{
-        font-size: 1rem;
-    }
-
-}
-
-
-/* -------------------------------------- RESPONSIVE 6EME FIN ------------------------------------------------------ */
-
-
-/* -------------------------------------- 5EME ------------------------------------------------------ */
- 
-.page-5eme{
-    position:relative;
-}
-
-
-
-.page-5eme .nav-bar li:not(.non-surligne)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--greentransp);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border-radius: 8px;
-    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
-}
-
-.page-5eme .nav-bar li:not(.non-surligne):hover::before {
-    opacity: 1;
-}
-
-.page-5eme .fond-deco-haut{
-    width: 100%;
-    background:url(./assets/fond\ haut.png);
-    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
-    min-height:30vh;
-}
-
-.page-5eme .encadre-5eme{
-    position:absolute;
-    background:var(--green);
-    border-radius: 25px;
-    height: 40vh;
-    width:60%;
-    top:10%;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    align-items: center;
-    padding:5%;
-}
-
-.page-5eme .encadre-5eme img{
-    height: 60vh;
-    margin-left:30px;
-    margin-bottom:30px;
-}
-
-.page-5eme h1{
-    color:white;
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:15rem;
-    user-select: none;
-}
-
-
-.page-5eme .les-cours-5eme{
-    background: linear-gradient(to right, white, rgb(196, 196, 196));
-    min-height:150vh;
-    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
-}
-
-.page-5eme .les-cours-5eme h2{
-    color:var(--green);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:5rem;
-    margin:5%;
-    user-select: none;
-}
-
-
-.page-5eme .video-cours {
-  border: 2px dashed var(--green);
-}
-
-.page-5eme .video-cours summary {
-  color: var(--green);
-}
-
-.page-5eme .bouton-qcm:hover::after {
-  background-color: var(--green);
-}
-
-/* -------------------------------------- 5EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- RESPONSIVE 5EME ------------------------------------------------------ */
-
-@media screen and (max-width:1400px) {
-    .page-5eme .encadre-5eme img{
-        height:50vh;
-        position:absolute;
-        left:20%;
-        z-index:-1;
-        max-width: 100%;
-        }
-
-    .page-5eme h1{
-        color:white;
-        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
-        -webkit-text-stroke: var(--black) 2px;
-        font-size:5rem;
-        user-select: none;
-    }
-
-    .page-5eme .les-cours-5eme h2{
-    color:var(--green);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:3rem;
-    margin:5%;
-    user-select: none;
-    }
-
-    .page-5eme .bouton-accueil{
-        font-size:1rem;
-    }
-
-    .page-5eme .bouton-qcm{
-        font-size: 1rem;
-    }
-
-}
-
-
-/* -------------------------------------- RESPONSIVE 5EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- 4EME ------------------------------------------------------ */
- 
-.page-4eme{
-    position:relative;
-}
-
-
-
-.page-4eme .nav-bar li:not(.non-surligne)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--purpletransp);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border-radius: 8px;
-    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
-}
-
-.page-4eme .nav-bar li:not(.non-surligne):hover::before {
-    opacity: 1;
-}
-
-.page-4eme .fond-deco-haut{
-    width: 100%;
-    background:url(./assets/fond\ haut.png);
-    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
-    min-height:30vh;
-}
-
-.page-4eme .encadre-4eme{
-    position:absolute;
-    background:var(--purple);
-    border-radius: 25px;
-    height: 40vh;
-    width:60%;
-    top:10%;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    align-items: center;
-    padding:5%;
-}
-
-.page-4eme .encadre-4eme img{
-    height: 60vh;
-}
-
-.page-4eme h1{
-    color:white;
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:15rem;
-    user-select: none;
-}
-
-
-.page-4eme .les-cours-4eme{
-    background: linear-gradient(to right, white, rgb(196, 196, 196));
-    min-height:150vh;
-    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
-}
-
-.page-4eme .les-cours-4eme h2{
-    color:var(--purple);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:5rem;
-    margin:5%;
-    user-select: none;
-}
-
-
-.page-4eme .video-cours {
-  border: 2px dashed var(--purple);
-}
-
-.page-4eme .video-cours summary {
-  color: var(--purple);
-}
-
-.page-4eme .bouton-qcm:hover::after {
-  background-color: var(--purple);
-}
-
-/* -------------------------------------- 4EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- RESPONSIVE 4EME ------------------------------------------------------ */
-
-@media screen and (max-width:1400px) {
-    .page-4eme .encadre-4eme img{
-        height:50vh;
-        position:absolute;
-        left:20%;
-        z-index:-1;
-        max-width: 100%;
-        margin-left:30px;
-        margin-bottom:120px;
-        }
-
-    .page-4eme h1{
-        color:white;
-        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
-        -webkit-text-stroke: var(--black) 2px;
-        font-size:5rem;
-        user-select: none;
-    }
-
-    .page-4eme .les-cours-4eme h2{
-    color:var(--purple);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:3rem;
-    margin:5%;
-    user-select: none;
-    }
-
-    .page-4eme .bouton-accueil{
-        font-size:1rem;
-    }
-
-    .page-4eme .bouton-qcm{
-        font-size: 1rem;
-    }
-
-}
-
-
-/* -------------------------------------- RESPONSIVE 4EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- 3EME ------------------------------------------------------ */
- 
-.page-3eme{
-    position:relative;
-}
-
-
-
+/* Hover nav-bar li — structure commune, couleur par classe */
+.page-6eme .nav-bar li:not(.non-surligne)::before,
+.page-5eme .nav-bar li:not(.non-surligne)::before,
+.page-4eme .nav-bar li:not(.non-surligne)::before,
 .page-3eme .nav-bar li:not(.non-surligne)::before {
-    content: "";
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.page-6eme .nav-bar li:not(.non-surligne)::before { background-color: var(--redtransp); }
+.page-5eme .nav-bar li:not(.non-surligne)::before { background-color: var(--greentransp); }
+.page-4eme .nav-bar li:not(.non-surligne)::before { background-color: var(--purpletransp); }
+.page-3eme .nav-bar li:not(.non-surligne)::before { background-color: var(--bluetransp); }
+
+.page-6eme .nav-bar li:not(.non-surligne):hover::before,
+.page-5eme .nav-bar li:not(.non-surligne):hover::before,
+.page-4eme .nav-bar li:not(.non-surligne):hover::before,
+.page-3eme .nav-bar li:not(.non-surligne):hover::before {
+  opacity: 1;
+}
+
+/* Fond décoratif haut — identique pour toutes les classes */
+.page-6eme .fond-deco-haut,
+.page-5eme .fond-deco-haut,
+.page-4eme .fond-deco-haut,
+.page-3eme .fond-deco-haut {
+  width: 100%;
+  background: url(./assets/fond\ haut.png);
+  background-position: 50% 40%;
+  min-height: 30vh;
+}
+
+/* Encadre — layout commun */
+.page-6eme .encadre-6eme,
+.page-5eme .encadre-5eme,
+.page-4eme .encadre-4eme,
+.page-3eme .encadre-3eme {
+  position: absolute;
+  border-radius: 25px;
+  height: 40vh;
+  width: 60%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  padding: 5%;
+}
+
+.page-6eme .encadre-6eme { background: var(--red); }
+.page-5eme .encadre-5eme { background: var(--green); }
+.page-4eme .encadre-4eme { background: var(--purple); }
+.page-3eme .encadre-3eme { background: var(--blue); }
+
+/* Image tigre */
+.page-6eme .encadre-6eme img,
+.page-4eme .encadre-4eme img,
+.page-3eme .encadre-3eme img {
+  height: 60vh;
+}
+
+.page-5eme .encadre-5eme img {
+  height: 60vh;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+/* H1 — identique pour toutes les classes */
+.page-6eme h1,
+.page-5eme h1,
+.page-4eme h1,
+.page-3eme h1 {
+  color: white;
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+  font-size: 15rem;
+  user-select: none;
+}
+
+/* Section cours — base identique */
+.page-6eme .les-cours-6eme,
+.page-5eme .les-cours-5eme,
+.page-4eme .les-cours-4eme,
+.page-3eme .les-cours-3eme {
+  background: linear-gradient(to right, white, rgb(196, 196, 196));
+  min-height: 150vh;
+  padding-top: 40vh;
+}
+
+/* Titre du chapitre — structure commune, couleur par classe */
+.page-6eme .les-cours-6eme h2,
+.page-5eme .les-cours-5eme h2,
+.page-4eme .les-cours-4eme h2,
+.page-3eme .les-cours-3eme h2 {
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+  font-size: 5rem;
+  margin: 5%;
+  user-select: none;
+}
+
+.page-6eme .les-cours-6eme h2 { color: var(--red); }
+.page-5eme .les-cours-5eme h2 { color: var(--green); }
+.page-4eme .les-cours-4eme h2 { color: var(--purple); }
+.page-3eme .les-cours-3eme h2 { color: var(--blue); }
+
+/* Couleur vidéo-cours par classe (6eme hérite du défaut rouge) */
+.page-5eme .video-cours { border: 2px dashed var(--green); }
+.page-5eme .video-cours summary { color: var(--green); }
+.page-4eme .video-cours { border: 2px dashed var(--purple); }
+.page-4eme .video-cours summary { color: var(--purple); }
+.page-3eme .video-cours { border: 2px dashed var(--blue); }
+.page-3eme .video-cours summary { color: var(--blue); }
+
+/* Bouton QCM couleur par classe */
+.page-6eme .bouton-qcm:hover::after { background-color: var(--red); }
+.page-5eme .bouton-qcm:hover::after { background-color: var(--green); }
+.page-4eme .bouton-qcm:hover::after { background-color: var(--purple); }
+.page-3eme .bouton-qcm:hover::after { background-color: var(--blue); }
+
+/* ===== RESPONSIVE 1400px (pages de classe) ===== */
+
+@media screen and (max-width: 1400px) {
+  /* Encadre img */
+  .page-6eme .encadre-6eme img,
+  .page-5eme .encadre-5eme img,
+  .page-3eme .encadre-3eme img {
+    height: 50vh;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    left: 20%;
+    z-index: -1;
+    max-width: 100%;
+  }
+
+  .page-4eme .encadre-4eme img {
+    height: 50vh;
+    position: absolute;
+    left: 20%;
+    z-index: -1;
+    max-width: 100%;
+    margin-left: 30px;
+    margin-bottom: 120px;
+  }
+
+  /* H1 */
+  .page-6eme h1,
+  .page-5eme h1,
+  .page-4eme h1,
+  .page-3eme h1 {
+    color: white;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    -webkit-text-stroke: var(--black) 2px;
+    font-size: 5rem;
+    user-select: none;
+  }
+
+  /* Titre du chapitre */
+  .page-6eme .les-cours-6eme h2,
+  .page-5eme .les-cours-5eme h2,
+  .page-4eme .les-cours-4eme h2,
+  .page-3eme .les-cours-3eme h2 {
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    font-size: 3rem;
+    margin: 5%;
+    user-select: none;
+  }
+
+  /* Boutons */
+  .page-6eme .bouton-accueil,
+  .page-5eme .bouton-accueil,
+  .page-4eme .bouton-accueil,
+  .page-3eme .bouton-accueil,
+  .page-6eme .bouton-qcm,
+  .page-5eme .bouton-qcm,
+  .page-4eme .bouton-qcm,
+  .page-3eme .bouton-qcm {
+    font-size: 1rem;
+  }
+}
+
+/* ===== QCM ===== */
+
+.app-qcm {
+  background-color: white;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 30px;
+  font-family: "Nunito", Impact;
+}
+
+.app-qcm h1 {
+  font-style: 25px;
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 30px;
+}
+
+.qcm {
+  padding: 20px 0;
+}
+
+.question {
+  font-style: 18px;
+}
+
+.reponse {
+  background-color: white;
+  color: var(--black);
+  font-weight: 500;
+  width: 100%;
+  border: 2px solid var(--black);
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.reponse:hover {
+  background-color: var(--black);
+  color: white;
+}
+
+#bouton-suivant {
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  width: 230px;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+}
+
+#boutons-fin {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Couleur par QCM */
+.QCM6eme { background-color: var(--red); }
+.QCM5eme { background-color: var(--green); }
+.QCM4eme { background-color: var(--purple); }
+.QCM3eme { background-color: var(--blue); }
+
+.QCM6eme #bouton-suivant { background-color: var(--red); }
+.QCM5eme #bouton-suivant { background-color: var(--green); }
+.QCM4eme #bouton-suivant { background-color: var(--purple); }
+.QCM3eme #bouton-suivant { background-color: var(--blue); }
+
+/* app-qcm — structure commune */
+.QCM6eme .app-qcm,
+.QCM5eme .app-qcm,
+.QCM4eme .app-qcm,
+.QCM3eme .app-qcm {
+  position: relative;
+}
+
+.QCM6eme .app-qcm::before,
+.QCM5eme .app-qcm::before,
+.QCM4eme .app-qcm::before,
+.QCM3eme .app-qcm::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 105%;
+  transform: translateX(-50%);
+  height: 150px;
+  width: 100%;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.QCM6eme .app-qcm::before { background-image: url(./assets/icon-maths.png); }
+.QCM5eme .app-qcm::before { background-image: url(./assets/icon-svt.png); }
+.QCM4eme .app-qcm::before { background-image: url(./assets/icon-physique.png); }
+.QCM3eme .app-qcm::before { background-image: url(./assets/icon-fr.png); }
+
+@media screen and (max-width: 1000px) {
+  .QCM6eme .app-qcm::before,
+  .QCM5eme .app-qcm::before,
+  .QCM4eme .app-qcm::before,
+  .QCM3eme .app-qcm::before {
+    top: 95%;
+    left: 50%;
+  }
+}
+
+/* ===== RESPONSIVE 768px (pages de classe) ===== */
+/* Ce bloc est en fin de fichier pour surcharger les règles @media 1400px ci-dessus */
+
+@media screen and (max-width: 768px) {
+  /* Corps de page : colonne flex pour que le footer colle toujours en bas */
+  body.page-6eme,
+  body.page-5eme,
+  body.page-4eme,
+  body.page-3eme {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Section cours : grandit pour remplir l'espace restant → footer toujours en bas */
+  body.page-6eme .les-cours-6eme,
+  body.page-5eme .les-cours-5eme,
+  body.page-4eme .les-cours-4eme,
+  body.page-3eme .les-cours-3eme {
+    flex-grow: 1;
+  }
+
+  body.page-6eme .fond-deco-haut,
+  body.page-5eme .fond-deco-haut,
+  body.page-4eme .fond-deco-haut,
+  body.page-3eme .fond-deco-haut {
+    min-height: 12vh;
+  }
+
+  body.page-6eme .encadre-6eme,
+  body.page-5eme .encadre-5eme,
+  body.page-4eme .encadre-4eme,
+  body.page-3eme .encadre-3eme {
+    position: relative;
+    width: 88%;
+    height: auto;
+    min-height: 120px;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 1rem auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  body.page-6eme h1,
+  body.page-5eme h1,
+  body.page-4eme h1,
+  body.page-3eme h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    -webkit-text-stroke: none;
+    flex-shrink: 0;
+  }
+
+  body.page-6eme .encadre-6eme img,
+  body.page-5eme .encadre-5eme img,
+  body.page-4eme .encadre-4eme img,
+  body.page-3eme .encadre-3eme img {
+    position: relative;
+    height: auto;
+    width: 55%;
+    max-height: 160px;
+    left: auto;
+    z-index: 0;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  /* Plus besoin du grand padding-top réservé pour le positionnement absolu desktop */
+  body.page-6eme .les-cours-6eme,
+  body.page-5eme .les-cours-5eme,
+  body.page-4eme .les-cours-4eme,
+  body.page-3eme .les-cours-3eme {
+    padding-top: 2rem;
+    min-height: 0;
+  }
+
+  body.page-6eme .les-cours-6eme h2,
+  body.page-5eme .les-cours-5eme h2,
+  body.page-4eme .les-cours-4eme h2,
+  body.page-3eme .les-cours-3eme h2 {
+    font-size: clamp(1.2rem, 5.5vw, 2rem);
+    margin: 1rem 5%;
+  }
+
+  .nav-bar {
+    height: 55px;
+    padding: 0 12px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-bar h2 {
+    font-size: clamp(0.65rem, 2.5vw, 0.85rem);
+  }
+
+  .nav-bar-burger {
+    display: flex;
+  }
+
+  .nav-bar ul {
+    position: fixed;
+    top: 55px;
     left: 0;
     right: 0;
-    background-color: var(--bluetransp);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border-radius: 8px;
-    z-index: -1; /* Pour ne pas qu'il "filtre" le texte aussi mais bien derrière */
-}
-
-.page-3eme .nav-bar li:not(.non-surligne):hover::before {
-    opacity: 1;
-}
-
-.page-3eme .fond-deco-haut{
     width: 100%;
-    background:url(./assets/fond\ haut.png);
-    background-position: 50% 40%; /* 50% horizontal, 40% vertical */
-    min-height:30vh;
-}
-
-.page-3eme .encadre-3eme{
-    position:absolute;
-    background:var(--blue);
-    border-radius: 25px;
-    height: 40vh;
-    width:60%;
-    top:10%;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
+    background: rgba(252, 236, 235, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--sakura);
+    flex-direction: column;
     align-items: center;
-    padding:5%;
-}
+    justify-content: flex-start;
+    gap: 0;
+    font-size: 1rem;
+    align-self: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
+    padding: 0;
+  }
 
-.page-3eme .encadre-3eme img{
-    height: 60vh;
-}
+  .nav-bar ul.open {
+    max-height: 280px;
+    padding: 0.5rem 0;
+  }
 
-.page-3eme h1{
-    color:white;
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:15rem;
-    user-select: none;
-}
-
-
-.page-3eme .les-cours-3eme{
-    background: linear-gradient(to right, white, rgb(196, 196, 196));
-    min-height:150vh;
-    padding-top: 40vh; /* Faut ajouter un peu d'espace à cause de l'entre deux */
-}
-
-.page-3eme .les-cours-3eme h2{
-    color:var(--blue);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:5rem;
-    margin:5%;
-    user-select: none;
-}
-
-
-.page-3eme .video-cours {
-  border: 2px dashed var(--blue);
-}
-
-.page-3eme .video-cours summary {
-  color: var(--blue);
-}
-
-.page-3eme .bouton-qcm:hover::after {
-  background-color: var(--blue);
-}
-
-/* -------------------------------------- 3EME FIN ------------------------------------------------------ */
-
-/* -------------------------------------- RESPONSIVE 3EME ------------------------------------------------------ */
-
-@media screen and (max-width:1400px) {
-    .page-3eme .encadre-3eme img{
-        height:50vh;
-        position:absolute;
-        left:20%;
-        z-index:-1;
-        max-width: 100%;
-        }
-
-    .page-3eme h1{
-        color:white;
-        filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
-        -webkit-text-stroke: var(--black) 2px;
-        font-size:5rem;
-        user-select: none;
-    }
-
-    .page-3eme .les-cours-3eme h2{
-    color:var(--blue);
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
-    font-size:3rem;
-    margin:5%;
-    user-select: none;
-    }
-
-    .page-3eme .bouton-accueil{
-        font-size:1rem;
-    }
-
-    .page-3eme .bouton-qcm{
-        font-size: 1rem;
-    }
-
-}
-
-
-/* -------------------------------------- RESPONSIVE 3EME FIN ------------------------------------------------------ */
-
-
-/* -------------------------------------- TOUS LES QCM ------------------------------------------------------ */
-
-.app-qcm{
-    background-color:white;
-    width: 90%;
-    max-width: 600px;
-    margin:100px auto 0;
-    border-radius:20px;
-    padding:30px;
-    font-family: 'Nunito', Impact;
-}
-
-.app-qcm h1{
-    font-style: 25px;
-    border-bottom:2px solid var(--black);
-    padding-bottom:30px;
-}
-
-.qcm{
-    padding: 20px 0;
-}
-
-.question{
-    font-style: 18px;
-}
-
-.reponse{
-    background-color:white;
-    color:var(--black);
-    font-weight: 500;
+  .nav-bar li {
     width: 100%;
-    border: 2px solid var(--black);
-    padding:10px;
-    margin:10px 0;
-    text-align:left;
-    border-radius: 10px;
-    cursor:pointer;  
-    transition: all 0.3s ease-in-out;
+    height: auto;
+    padding: 0.75rem 2rem;
+    justify-content: center;
+    font-size: 1rem;
+    text-align: center;
+  }
 
-}
+  .nav-bar li::before {
+    border-radius: 0;
+  }
 
-.reponse:hover{
-    background-color: var(--black);
-    color:white;
-}
+  .nav-bar li.non-surligne {
+    opacity: 0.5;
+  }
 
-#bouton-suivant{
-    color:white;
-    font-weight: 500;
-    font-size: 1.2rem;
-    width: 230px;
-    padding:10px;
-    margin: 20px auto 0;
-    border-radius: 4px;
-    cursor:pointer;
-    display:block; /* CENTRE AUTOMATIQUEMENT */
-}
-
-#boutons-fin{
-    display:none;
-    text-align:center;
-    margin-top:30px;
-}
-
-/* -------------------------------------- TOUS LES QCM FIN------------------------------------------------------ */
-
-/* -------------------------------------- QCM 6EME ------------------------------------------------------ */
-
-.QCM6eme{
-    background-color: var(--red);
-}
-
-.QCM6eme #bouton-suivant{
-    background-color: var(--red);
-}
-
-.QCM6eme .app-qcm {
-    position: relative; 
-}
-.QCM6eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: 105%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-maths.png) no-repeat center/contain;
-    z-index: 0;
-}
-
-@media screen and (max-width:1000px){
-   .QCM6eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top:95%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-maths.png) no-repeat center/contain;
-    z-index: 0;
-    } 
-}
-
-/* -------------------------------------- QCM 5EME ------------------------------------------------------ */
-
-.QCM5eme{
-    background-color: var(--green);
-}
-
-.QCM5eme #bouton-suivant{
-    background-color: var(--green);
-}
-
-.QCM5eme .app-qcm {
-    position: relative; 
-}
-.QCM5eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: 105%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-svt.png) no-repeat center/contain;
-    z-index: 0;
-}
-
-@media screen and (max-width:1000px){
-   .QCM5eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top:95%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-svt.png) no-repeat center/contain;
-    z-index: 0;
-    } 
-}
-
-/* -------------------------------------- QCM 4EME ------------------------------------------------------ */
-
-.QCM4eme{
-    background-color: var(--purple);
-}
-
-.QCM4eme #bouton-suivant{
-    background-color: var(--purple);
-}
-
-.QCM4eme .app-qcm {
-    position: relative; 
-}
-.QCM4eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: 105%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-physique.png) no-repeat center/contain;
-    z-index: 0;
-}
-
-@media screen and (max-width:1000px){
-   .QCM4eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top:95%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-physique.png) no-repeat center/contain;
-    z-index: 0;
-    } 
-}
-
-/* -------------------------------------- QCM 3EME ------------------------------------------------------ */
-
-.QCM3eme{
-    background-color: var(--blue);
-}
-
-.QCM3eme #bouton-suivant{
-    background-color: var(--blue);
-}
-
-.QCM3eme .app-qcm {
-    position: relative; 
-}
-.QCM3eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: 105%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-fr.png) no-repeat center/contain;
-    z-index: 0;
-}
-
-@media screen and (max-width:1000px){
-   .QCM3eme .app-qcm::before {
-    content: "";
-    position: absolute;
-    top:95%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 150px;
-    width: 100%;
-    background: url(./assets/icon-fr.png) no-repeat center/contain;
-    z-index: 0;
-    } 
+  .page-6eme .nav-bar ul { border-bottom-color: var(--red); }
+  .page-5eme .nav-bar ul { border-bottom-color: var(--green); }
+  .page-4eme .nav-bar ul { border-bottom-color: var(--purple); }
+  .page-3eme .nav-bar ul { border-bottom-color: var(--blue); }
 }
